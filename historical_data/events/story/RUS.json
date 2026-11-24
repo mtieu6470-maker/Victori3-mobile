@@ -1,0 +1,4676 @@
+{
+  "schema": "story_events_v1",
+  "country": "RUS",
+  "sources": {
+    "cambridge": "Dominic Lieven (ed.), The Cambridge History of Russia, Vol. II: Imperial Russia, 1689–1917, chronology: https://assets.cambridge.org/97805218/15291/frontmatter/9780521815291_frontmatter.pdf",
+    "loc": "Library of Congress, Russia: A Country Study, chronology; and The Empire That Was Russia, chronology: https://tile.loc.gov/storage-services/master/frd/frdcstdy/ru/russiacountrystu00curt/russiacountrystu00curt.pdf ; https://www.loc.gov/exhibits/empire/chronology.html",
+    "oldenburg": "Oldenburg University, OME-Lexikon, Russia / Russian Empire, Great Reforms: https://ome-lexikon.uni-oldenburg.de/en/countries/russia-russian-empire",
+    "stanford": "Stanford University, Russian History: A Brief Chronology: https://web.stanford.edu/class/slavic272/materials/chron_russia.pdf",
+    "history": "HISTORY.com, Russian Revolution: Causes, Timeline & Bolsheviks: https://www.history.com/articles/russian-revolution"
+  },
+  "events": [
+    {
+      "id": "rus_pushkin_death",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1837-01-01",
+        "1838-12-31"
+      ],
+      "date_historical": "1837-02-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1837,
+            "to": 1838
+          }
+        ],
+        "fire_date": "1837-02-10"
+      },
+      "title_vi": "Cái chết của Aleksandr Pushkin",
+      "title_en": "The Death of Aleksandr Pushkin",
+      "text_vi": "Aleksandr Pushkin qua đời sau cuộc đấu súng tại St Petersburg, để lại dấu ấn sâu sắc trong văn học Nga. Triều đình vừa tôn vinh di sản văn hóa, vừa duy trì kiểm duyệt và giám sát chặt chẽ giới trí thức.",
+      "text_en": "Aleksandr Pushkin dies after a duel in St Petersburg, leaving a lasting mark on Russian literature. The court celebrates cultural prestige while maintaining censorship and close surveillance of intellectual life.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo trợ văn học và giáo dục có kiểm soát",
+          "label_en": "Patronise literature and education under supervision",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_pushkin_death_historical",
+              "name_vi": "Hệ quả chính sách: Bảo trợ văn học và giáo dục có kiểm soát",
+              "name_en": "Policy consequence: Patronise literature and education under supervision",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.008,
+                "prestige": 0.04,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Siết kiểm duyệt để tránh bất đồng chính trị",
+          "label_en": "Tighten censorship to prevent political dissent",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_pushkin_death_alternative",
+              "name_vi": "Hệ quả chính sách: Siết kiểm duyệt để tránh bất đồng chính trị",
+              "name_en": "Policy consequence: Tighten censorship to prevent political dissent",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "radicalism": 0.004,
+                "prestige": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_tsarskoye_selo_railway",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1837-01-01",
+        "1838-12-31"
+      ],
+      "date_historical": "1837-11-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1837,
+            "to": 1838
+          }
+        ],
+        "fire_date": "1837-11-11"
+      },
+      "title_vi": "Đường sắt đầu tiên của Nga đi vào hoạt động",
+      "title_en": "Russia's First Railway Opens",
+      "text_vi": "Tuyến đường sắt nối St Petersburg với Tsarskoye Selo mở ra một hình thức vận tải mới cho đế quốc. Công trình mang tính biểu tượng nhưng cũng đặt ra câu hỏi về vốn, kỹ thuật và khả năng mở rộng hạ tầng trên lãnh thổ rộng lớn.",
+      "text_en": "The railway linking St Petersburg and Tsarskoye Selo opens a new form of transport in the empire. The project is symbolic, but it raises questions about capital, engineering and infrastructure across a vast territory.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đầu tư kỹ thuật và đào tạo kỹ sư trong nước",
+          "label_en": "Invest in engineering and domestic training",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_tsarskoye_selo_railway_historical",
+              "name_vi": "Hệ quả chính sách: Đầu tư kỹ thuật và đào tạo kỹ sư trong nước",
+              "name_en": "Policy consequence: Invest in engineering and domestic training",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.04,
+                "research": 0.008,
+                "trade": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng bằng vốn và chuyên gia ngoại quốc",
+          "label_en": "Expand through foreign capital and expertise",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_tsarskoye_selo_railway_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng bằng vốn và chuyên gia ngoại quốc",
+              "name_en": "Policy consequence: Expand through foreign capital and expertise",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.06,
+                "tax": -0.012,
+                "trade": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_westernizer_debate",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1840-01-01",
+        "1841-12-31"
+      ],
+      "date_historical": "1840-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1840,
+            "to": 1841
+          }
+        ],
+        "fire_date": "1840-01-01"
+      },
+      "title_vi": "Tranh luận giữa phái Tây phương hóa và Slavophile",
+      "title_en": "The Westernizer–Slavophile Debate",
+      "text_vi": "Giới trí thức Nga tranh luận về việc nên tiếp thu thể chế châu Âu hay phát triển một con đường riêng dựa trên truyền thống Nga. Tranh luận phản ánh căng thẳng giữa hiện đại hóa, bản sắc quốc gia và quyền kiểm soát tư tưởng của chế độ chuyên chế.",
+      "text_en": "Russian intellectuals debate whether to adopt European institutions or pursue a distinct path rooted in Russian traditions. The debate reflects tensions between modernisation, national identity and the ideological control of autocracy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Cho phép tranh luận học thuật có giới hạn",
+          "label_en": "Permit bounded academic debate",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_westernizer_debate_historical",
+              "name_vi": "Hệ quả chính sách: Cho phép tranh luận học thuật có giới hạn",
+              "name_en": "Policy consequence: Permit bounded academic debate",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.008,
+                "literacy": 0.006,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì kiểm duyệt tư tưởng nghiêm ngặt",
+          "label_en": "Maintain strict ideological censorship",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_westernizer_debate_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì kiểm duyệt tư tưởng nghiêm ngặt",
+              "name_en": "Policy consequence: Maintain strict ideological censorship",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "research": -0.004,
+                "radicalism": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "stanford"
+      ]
+    },
+    {
+      "id": "rus_european_revolutions",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1849-12-31"
+      ],
+      "date_historical": "1848-03-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1849
+          }
+        ],
+        "fire_date": "1848-03-01"
+      },
+      "title_vi": "Cách mạng châu Âu làm triều đình lo ngại",
+      "title_en": "The European Revolutions Alarm the Court",
+      "text_vi": "Các cuộc cách mạng năm 1848 lan rộng khắp châu Âu, khiến Nicholas I lo ngại phong trào hiến pháp và dân tộc chủ nghĩa có thể truyền vào đế quốc. Chính quyền tăng cường kiểm soát biên giới, trường đại học và báo chí.",
+      "text_en": "Revolutions spread across Europe in 1848, alarming Nicholas I that constitutional and nationalist movements could enter the empire. The government tightens control over borders, universities and the press.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng cường an ninh nhưng giữ cải cách hành chính",
+          "label_en": "Strengthen security while retaining administrative reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_european_revolutions_historical",
+              "name_vi": "Hệ quả chính sách: Tăng cường an ninh nhưng giữ cải cách hành chính",
+              "name_en": "Policy consequence: Strengthen security while retaining administrative reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.5,
+                "police": 0.025,
+                "radicalism": -0.002
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đóng cửa không gian công cộng và học thuật",
+          "label_en": "Close public and academic space",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_european_revolutions_alternative",
+              "name_vi": "Hệ quả chính sách: Đóng cửa không gian công cộng và học thuật",
+              "name_en": "Policy consequence: Close public and academic space",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "research": -0.008,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_hungarian_intervention",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1849-01-01",
+        "1850-12-31"
+      ],
+      "date_historical": "1849-06-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1849,
+            "to": 1850
+          }
+        ],
+        "fire_date": "1849-06-15"
+      },
+      "title_vi": "Quân Nga can thiệp vào cách mạng Hungary",
+      "title_en": "Russian Intervention in Hungary",
+      "text_vi": "Theo đề nghị của triều đình Habsburg, quân Nga tiến vào Hungary để giúp dập tắt cuộc cách mạng. Chiến dịch củng cố vai trò Nga như người bảo vệ trật tự quân chủ châu Âu nhưng làm gia tăng chi phí và sự cảnh giác của các nước láng giềng.",
+      "text_en": "At the request of the Habsburg court, Russian forces enter Hungary to help suppress the revolution. The campaign strengthens Russia's image as a defender of Europe's monarchies but raises costs and suspicion among neighbouring powers.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hỗ trợ đồng minh để giữ trật tự châu Âu",
+          "label_en": "Support the ally to preserve European order",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_hungarian_intervention_historical",
+              "name_vi": "Hệ quả chính sách: Hỗ trợ đồng minh để giữ trật tự châu Âu",
+              "name_en": "Policy consequence: Support the ally to preserve European order",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "army": 0.035,
+                "tax": -0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giới hạn can thiệp để tránh sa lầy",
+          "label_en": "Limit intervention to avoid overextension",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_hungarian_intervention_alternative",
+              "name_vi": "Hệ quả chính sách: Giới hạn can thiệp để tránh sa lầy",
+              "name_en": "Policy consequence: Limit intervention to avoid overextension",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.04,
+                "tax": 0.008,
+                "prestige": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_crimean_war",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1853-01-01",
+        "1854-12-31"
+      ],
+      "date_historical": "1853-10-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1853,
+            "to": 1854
+          }
+        ],
+        "fire_date": "1853-10-16"
+      },
+      "title_vi": "Chiến tranh Krym bùng nổ",
+      "title_en": "The Crimean War Begins",
+      "text_vi": "Nga bước vào chiến tranh với Đế quốc Ottoman trong cuộc tranh chấp về ảnh hưởng và quyền lợi tại vùng Biển Đen. Cuộc xung đột nhanh chóng kéo thêm Anh, Pháp và Sardinia, biến vấn đề khu vực thành cuộc chiến với các cường quốc công nghiệp hàng đầu.",
+      "text_en": "Russia enters war with the Ottoman Empire over influence and privileges around the Black Sea. Britain, France and Sardinia soon join, turning a regional dispute into a war against leading industrial powers.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Huy động lực lượng và cải thiện hậu cần",
+          "label_en": "Mobilise forces and improve logistics",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_crimean_war_historical",
+              "name_vi": "Hệ quả chính sách: Huy động lực lượng và cải thiện hậu cần",
+              "name_en": "Policy consequence: Mobilise forces and improve logistics",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "war_exhaustion": 0.18,
+                "tax": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm thỏa hiệp để giảm nguy cơ chiến tranh kéo dài",
+          "label_en": "Seek compromise to limit a prolonged war",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_crimean_war_alternative",
+              "name_vi": "Hệ quả chính sách: Tìm thỏa hiệp để giảm nguy cơ chiến tranh kéo dài",
+              "name_en": "Policy consequence: Seek compromise to limit a prolonged war",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.12,
+                "legitimacy": -0.7,
+                "prestige": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_western_allies_enter_war",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1854-01-01",
+        "1855-12-31"
+      ],
+      "date_historical": "1854-03-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1854,
+            "to": 1855
+          }
+        ],
+        "fire_date": "1854-03-28"
+      },
+      "title_vi": "Anh và Pháp tuyên chiến với Nga",
+      "title_en": "Britain and France Declare War",
+      "text_vi": "Anh và Pháp chính thức tham chiến, khiến Nga phải đối đầu một liên minh có ưu thế về hải quân và công nghiệp. Các tuyến vận tải, cảng biển và năng lực cung ứng của quân đội trở thành điểm yếu chiến lược.",
+      "text_en": "Britain and France formally enter the war, forcing Russia to confront a coalition with naval and industrial advantages. Transport routes, ports and military supply become strategic weaknesses.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên tiếp tế và phòng thủ các vị trí trọng yếu",
+          "label_en": "Prioritise supply and defence of key positions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_western_allies_enter_war_historical",
+              "name_vi": "Hệ quả chính sách: Ưu tiên tiếp tế và phòng thủ các vị trí trọng yếu",
+              "name_en": "Policy consequence: Prioritise supply and defence of key positions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.045,
+                "construction": 0.02,
+                "war_exhaustion": 0.16
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung vào một mặt trận duy nhất",
+          "label_en": "Concentrate on a single front",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_western_allies_enter_war_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung vào một mặt trận duy nhất",
+              "name_en": "Policy consequence: Concentrate on a single front",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "tax": 0.01,
+                "war_exhaustion": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_alexander_ii_accession",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1855-01-01",
+        "1856-12-31"
+      ],
+      "date_historical": "1855-03-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1855,
+            "to": 1856
+          }
+        ],
+        "fire_date": "1855-03-02"
+      },
+      "title_vi": "Aleksandr II lên ngôi",
+      "title_en": "Alexander II Ascends the Throne",
+      "text_vi": "Nicholas I qua đời giữa lúc chiến tranh Krym phơi bày nhiều khiếm khuyết của quân đội và bộ máy nhà nước. Aleksandr II kế vị với áp lực phải chấm dứt chiến tranh và xem xét những cải cách mà triều đình trước đó trì hoãn.",
+      "text_en": "Nicholas I dies as the Crimean War exposes weaknesses in the army and state administration. Alexander II inherits pressure to end the war and consider reforms postponed by the previous court.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở chương trình cải cách có kiểm soát",
+          "label_en": "Begin a controlled reform programme",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_alexander_ii_accession_historical",
+              "name_vi": "Hệ quả chính sách: Mở chương trình cải cách có kiểm soát",
+              "name_en": "Policy consequence: Begin a controlled reform programme",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": 0.5,
+                "research": 0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ nguyên mô hình cai trị cũ",
+          "label_en": "Preserve the old governing model",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_alexander_ii_accession_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ nguyên mô hình cai trị cũ",
+              "name_en": "Policy consequence: Preserve the old governing model",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "reform": -0.006,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_sevastopol_falls",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1855-01-01",
+        "1856-12-31"
+      ],
+      "date_historical": "1855-09-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1855,
+            "to": 1856
+          }
+        ],
+        "fire_date": "1855-09-09"
+      },
+      "title_vi": "Sevastopol thất thủ",
+      "title_en": "The Fall of Sevastopol",
+      "text_vi": "Sau gần một năm vây hãm, quân đồng minh chiếm phần lớn Sevastopol, làm suy yếu khả năng tiếp tục chiến tranh của Nga tại Krym. Thất bại cho thấy pháo đài và lòng dũng cảm không thể thay thế công nghiệp, vận tải và tổ chức hậu cần hiện đại.",
+      "text_en": "After a prolonged siege, allied forces capture much of Sevastopol, undermining Russia's ability to continue the Crimean campaign. The defeat shows that fortifications and courage cannot replace industry, transport and modern logistics.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Rút kinh nghiệm và hiện đại hóa quân đội",
+          "label_en": "Learn lessons and modernise the army",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_sevastopol_falls_historical",
+              "name_vi": "Hệ quả chính sách: Rút kinh nghiệm và hiện đại hóa quân đội",
+              "name_en": "Policy consequence: Learn lessons and modernise the army",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.008,
+                "army": 0.035,
+                "reform": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo vệ danh dự bằng cách tiếp tục chiến đấu",
+          "label_en": "Continue fighting to defend national honour",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_sevastopol_falls_alternative",
+              "name_vi": "Hệ quả chính sách: Bảo vệ danh dự bằng cách tiếp tục chiến đấu",
+              "name_en": "Policy consequence: Continue fighting to defend national honour",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": 0.15,
+                "tax": 0.01,
+                "legitimacy": -0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_treaty_paris",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1856-01-01",
+        "1857-12-31"
+      ],
+      "date_historical": "1856-03-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1856,
+            "to": 1857
+          }
+        ],
+        "fire_date": "1856-03-30"
+      },
+      "title_vi": "Hiệp ước Paris kết thúc chiến tranh Krym",
+      "title_en": "The Treaty of Paris",
+      "text_vi": "Hiệp ước Paris buộc Nga chấp nhận những hạn chế tại Biển Đen và một trật tự an ninh mới ở khu vực. Thất bại ngoại giao sau chiến tranh tạo động lực cho chương trình Đại cải cách dưới thời Aleksandr II.",
+      "text_en": "The Treaty of Paris forces Russia to accept restrictions in the Black Sea and a new regional security order. The diplomatic defeat creates momentum for Alexander II's Great Reforms.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Dồn nguồn lực cho cải cách trong nước",
+          "label_en": "Redirect resources toward domestic reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_treaty_paris_historical",
+              "name_vi": "Hệ quả chính sách: Dồn nguồn lực cho cải cách trong nước",
+              "name_en": "Policy consequence: Redirect resources toward domestic reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "construction": 0.02,
+                "legitimacy": 0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tái vũ trang nhanh để khôi phục vị thế",
+          "label_en": "Rearm rapidly to restore status",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_treaty_paris_alternative",
+              "name_vi": "Hệ quả chính sách: Tái vũ trang nhanh để khôi phục vị thế",
+              "name_en": "Policy consequence: Rearm rapidly to restore status",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "tax": 0.015,
+                "reform": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_treaty_aigun_russia",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1858-01-01",
+        "1859-12-31"
+      ],
+      "date_historical": "1858-05-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1858,
+            "to": 1859
+          }
+        ],
+        "fire_date": "1858-05-28"
+      },
+      "title_vi": "Hiệp ước Ái Hồn mở rộng lãnh thổ Nga tại Amur",
+      "title_en": "The Treaty of Aigun",
+      "text_vi": "Nga và nhà Thanh ký hiệp ước điều chỉnh biên giới, đưa bờ bắc sông Amur vào phạm vi kiểm soát của Nga. Việc mở rộng lãnh thổ củng cố vị trí tại Viễn Đông nhưng đòi hỏi đầu tư vào định cư, hành chính và hậu cần vùng biên.",
+      "text_en": "Russia and Qing China sign a treaty shifting the frontier and bringing the northern bank of the Amur under Russian control. The territorial gain strengthens Russia in the Far East but requires investment in settlement, administration and frontier logistics.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phát triển hạ tầng và quản trị vùng mới",
+          "label_en": "Develop infrastructure and administration in the new territory",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_treaty_aigun_russia_historical",
+              "name_vi": "Hệ quả chính sách: Phát triển hạ tầng và quản trị vùng mới",
+              "name_en": "Policy consequence: Develop infrastructure and administration in the new territory",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.035,
+                "trade": 0.02,
+                "tax": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên đồn trú và khai thác tài nguyên",
+          "label_en": "Prioritise garrisons and resource extraction",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_treaty_aigun_russia_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên đồn trú và khai thác tài nguyên",
+              "name_en": "Policy consequence: Prioritise garrisons and resource extraction",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "tax": 0.012,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_shamil_surrender",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1859-01-01",
+        "1860-12-31"
+      ],
+      "date_historical": "1859-08-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1859,
+            "to": 1860
+          }
+        ],
+        "fire_date": "1859-08-25"
+      },
+      "title_vi": "Imam Shamil đầu hàng tại Caucasus",
+      "title_en": "Imam Shamil Surrenders",
+      "text_vi": "Imam Shamil đầu hàng sau nhiều thập niên kháng chiến tại Bắc Caucasus, đánh dấu bước ngoặt trong cuộc chiến chinh phục khu vực. Việc kiểm soát quân sự không đồng nghĩa với ổn định; chính quyền phải lựa chọn giữa hòa giải, tự trị địa phương và cưỡng chế.",
+      "text_en": "Imam Shamil surrenders after decades of resistance in the North Caucasus, marking a turning point in the conquest of the region. Military control does not guarantee stability; the state must choose between accommodation, local autonomy and coercion.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Kết hợp hòa giải và quản trị địa phương",
+          "label_en": "Combine reconciliation with local administration",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_shamil_surrender_historical",
+              "name_vi": "Hệ quả chính sách: Kết hợp hòa giải và quản trị địa phương",
+              "name_en": "Policy consequence: Combine reconciliation with local administration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "police": -0.01,
+                "tax": 0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì kiểm soát quân sự trực tiếp",
+          "label_en": "Maintain direct military control",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_shamil_surrender_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì kiểm soát quân sự trực tiếp",
+              "name_en": "Policy consequence: Maintain direct military control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "police": 0.025,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_treaty_peking_russia",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1860-01-01",
+        "1861-12-31"
+      ],
+      "date_historical": "1860-11-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1860,
+            "to": 1861
+          }
+        ],
+        "fire_date": "1860-11-14"
+      },
+      "title_vi": "Công ước Bắc Kinh xác lập thêm lãnh thổ Viễn Đông",
+      "title_en": "The Convention of Peking",
+      "text_vi": "Công ước Bắc Kinh xác nhận việc Nga kiểm soát vùng Ussuri giữa sông Ussuri và Thái Bình Dương. Việc mở rộng tạo điều kiện phát triển cảng Vladivostok nhưng cũng kéo dài đường biên và tăng chi phí quản lý vùng xa.",
+      "text_en": "The Convention of Peking confirms Russian control over the Ussuri region between the Ussuri River and the Pacific. The expansion supports the development of Vladivostok but lengthens the frontier and increases the cost of governing distant territories.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đầu tư cảng biển và tuyến vận tải Viễn Đông",
+          "label_en": "Invest in Far Eastern ports and transport",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_treaty_peking_russia_historical",
+              "name_vi": "Hệ quả chính sách: Đầu tư cảng biển và tuyến vận tải Viễn Đông",
+              "name_en": "Policy consequence: Invest in Far Eastern ports and transport",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.04,
+                "trade": 0.02,
+                "research": 0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ ngân sách thấp và dựa vào đồn trú",
+          "label_en": "Keep spending low and rely on garrisons",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_treaty_peking_russia_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ ngân sách thấp và dựa vào đồn trú",
+              "name_en": "Policy consequence: Keep spending low and rely on garrisons",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.012,
+                "army": 0.025,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_emancipation_manifesto",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1861-01-01",
+        "1862-12-31"
+      ],
+      "date_historical": "1861-03-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1861,
+            "to": 1862
+          }
+        ],
+        "fire_date": "1861-03-03"
+      },
+      "title_vi": "Tuyên ngôn giải phóng nông nô",
+      "title_en": "The Emancipation Manifesto",
+      "text_vi": "Aleksandr II công bố giải phóng nông nô, chấm dứt quan hệ lệ thuộc pháp lý của hàng triệu nông dân. Tuy nhiên, quy định về đất đai, khoản chuộc đất và cộng đồng làng xã khiến tự do cá nhân chưa lập tức chuyển thành thịnh vượng kinh tế.",
+      "text_en": "Alexander II proclaims the emancipation of the serfs, ending the legal dependency of millions of peasants. Land allotments, redemption payments and village institutions mean that personal freedom does not immediately translate into economic prosperity.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Triển khai cải cách đất đai và hỗ trợ chuyển đổi",
+          "label_en": "Implement land reform and support the transition",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_emancipation_manifesto_historical",
+              "name_vi": "Hệ quả chính sách: Triển khai cải cách đất đai và hỗ trợ chuyển đổi",
+              "name_en": "Policy consequence: Implement land reform and support the transition",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "literacy": 0.006,
+                "legitimacy": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ cơ chế chuộc đất để bảo vệ ngân khố",
+          "label_en": "Retain redemption payments to protect the treasury",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_emancipation_manifesto_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ cơ chế chuộc đất để bảo vệ ngân khố",
+              "name_en": "Policy consequence: Retain redemption payments to protect the treasury",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.015,
+                "radicalism": 0.008,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "oldenburg"
+      ]
+    },
+    {
+      "id": "rus_january_uprising_poland",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1863-01-01",
+        "1864-12-31"
+      ],
+      "date_historical": "1863-01-22",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1863,
+            "to": 1864
+          }
+        ],
+        "fire_date": "1863-01-22"
+      },
+      "title_vi": "Khởi nghĩa tháng Giêng tại Ba Lan",
+      "title_en": "The January Uprising in Poland",
+      "text_vi": "Một cuộc nổi dậy chống sự cai trị của Nga bùng nổ tại Ba Lan thuộc Nga, kéo dài thành chiến tranh du kích. Triều đình phải lựa chọn cách tái lập quyền kiểm soát mà không làm sâu sắc thêm sự thù địch dân tộc trong các vùng biên của đế quốc.",
+      "text_en": "An uprising against Russian rule erupts in Congress Poland and develops into a prolonged guerrilla struggle. The court must restore control without deepening national hostility across the empire's borderlands.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Kết hợp cải cách hành chính với hòa giải",
+          "label_en": "Combine administrative reform with reconciliation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_january_uprising_poland_historical",
+              "name_vi": "Hệ quả chính sách: Kết hợp cải cách hành chính với hòa giải",
+              "name_en": "Policy consequence: Combine administrative reform with reconciliation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.5,
+                "reform": 0.005,
+                "radicalism": -0.002
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đàn áp và tập trung hóa mạnh hơn",
+          "label_en": "Suppress the revolt and centralise further",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_january_uprising_poland_alternative",
+              "name_vi": "Hệ quả chính sách: Đàn áp và tập trung hóa mạnh hơn",
+              "name_en": "Policy consequence: Suppress the revolt and centralise further",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.035,
+                "radicalism": 0.012,
+                "legitimacy": -0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_zemstvo_reform",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1864-01-01",
+        "1865-12-31"
+      ],
+      "date_historical": "1864-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1864,
+            "to": 1865
+          }
+        ],
+        "fire_date": "1864-01-01"
+      },
+      "title_vi": "Cải cách zemstvo mở rộng tự quản địa phương",
+      "title_en": "The Zemstvo Reform",
+      "text_vi": "Hệ thống zemstvo tạo ra các hội đồng tự quản cấp huyện và tỉnh với vai trò trong y tế, giáo dục và hạ tầng. Đây là bước mở rộng quản trị địa phương, nhưng quyền lực vẫn bị giới hạn bởi quan chức hoàng gia và cấu trúc xã hội có phân tầng.",
+      "text_en": "The zemstvo system creates district and provincial councils with responsibilities in health, education and infrastructure. It expands local administration, though authority remains constrained by imperial officials and a stratified social order.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Trao thêm ngân sách và trách nhiệm cho zemstvo",
+          "label_en": "Give zemstvos more funding and responsibility",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_zemstvo_reform_historical",
+              "name_vi": "Hệ quả chính sách: Trao thêm ngân sách và trách nhiệm cho zemstvo",
+              "name_en": "Policy consequence: Give zemstvos more funding and responsibility",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.025,
+                "literacy": 0.01,
+                "legitimacy": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ quyền giám sát chặt của thống đốc",
+          "label_en": "Keep governors in tight control",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_zemstvo_reform_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ quyền giám sát chặt của thống đốc",
+              "name_en": "Policy consequence: Keep governors in tight control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "tax": 0.008,
+                "reform": -0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "oldenburg"
+      ]
+    },
+    {
+      "id": "rus_judicial_reform",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1864-01-01",
+        "1865-12-31"
+      ],
+      "date_historical": "1864-12-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1864,
+            "to": 1865
+          }
+        ],
+        "fire_date": "1864-12-02"
+      },
+      "title_vi": "Cải cách tư pháp thiết lập tòa án mới",
+      "title_en": "The Judicial Reform",
+      "text_vi": "Các đạo luật tư pháp cải tổ tòa án, tăng tính công khai của xét xử và mở rộng vai trò luật sư cùng bồi thẩm đoàn. Cải cách tạo bước tiến về pháp quyền nhưng việc áp dụng không đồng đều giữa trung tâm và vùng nông thôn.",
+      "text_en": "New judicial statutes reorganise courts, increase the openness of trials and expand the roles of lawyers and juries. The reform advances the rule of law, though implementation remains uneven between the centre and rural regions.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ tính độc lập và chuyên nghiệp của tòa án",
+          "label_en": "Protect judicial independence and professionalism",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_judicial_reform_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ tính độc lập và chuyên nghiệp của tòa án",
+              "name_en": "Policy consequence: Protect judicial independence and professionalism",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.009,
+                "legitimacy": 0.6,
+                "research": 0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ quyền can thiệp hành chính trong các vụ nhạy cảm",
+          "label_en": "Retain administrative intervention in sensitive cases",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_judicial_reform_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ quyền can thiệp hành chính trong các vụ nhạy cảm",
+              "name_en": "Policy consequence: Retain administrative intervention in sensitive cases",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.4,
+                "reform": -0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "oldenburg"
+      ]
+    },
+    {
+      "id": "rus_karakozov_attempt",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1866-01-01",
+        "1867-12-31"
+      ],
+      "date_historical": "1866-04-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1866,
+            "to": 1867
+          }
+        ],
+        "fire_date": "1866-04-16"
+      },
+      "title_vi": "Dmitry Karakozov ám sát hụt Aleksandr II",
+      "title_en": "The Karakozov Assassination Attempt",
+      "text_vi": "Dmitry Karakozov nổ súng vào Aleksandr II tại St Petersburg nhưng thất bại. Vụ việc thúc đẩy phe bảo thủ kêu gọi siết an ninh và làm suy yếu niềm tin rằng cải cách có thể được tiến hành mà không đe dọa trật tự chuyên chế.",
+      "text_en": "Dmitry Karakozov shoots at Alexander II in St Petersburg but fails. The attempt strengthens conservative demands for security and weakens confidence that reform can proceed without threatening autocratic order.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ hoàng gia nhưng không đảo ngược cải cách",
+          "label_en": "Protect the monarch without reversing reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_karakozov_attempt_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ hoàng gia nhưng không đảo ngược cải cách",
+              "name_en": "Policy consequence: Protect the monarch without reversing reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.5,
+                "reform": 0.004,
+                "police": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng cảnh sát mật và kiểm duyệt",
+          "label_en": "Expand secret policing and censorship",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_karakozov_attempt_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng cảnh sát mật và kiểm duyệt",
+              "name_en": "Policy consequence: Expand secret policing and censorship",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "research": -0.006,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_alaska_sale",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1867-01-01",
+        "1868-12-31"
+      ],
+      "date_historical": "1867-03-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1867,
+            "to": 1868
+          }
+        ],
+        "fire_date": "1867-03-30"
+      },
+      "title_vi": "Nga bán Alaska cho Hoa Kỳ",
+      "title_en": "The Sale of Alaska",
+      "text_vi": "Nga ký hiệp ước nhượng Alaska cho Hoa Kỳ, phản ánh khó khăn trong việc bảo vệ và khai thác một lãnh thổ xa xôi sau chiến tranh Krym. Quyết định giải phóng nguồn lực nhưng cũng gây tranh luận về giá trị chiến lược của đế quốc ở Thái Bình Dương.",
+      "text_en": "Russia signs the treaty transferring Alaska to the United States, reflecting the difficulty of defending and developing a distant territory after the Crimean War. The decision frees resources but provokes debate over the empire's Pacific strategy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập trung nguồn lực vào Siberia và Viễn Đông",
+          "label_en": "Focus resources on Siberia and the Far East",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_alaska_sale_historical",
+              "name_vi": "Hệ quả chính sách: Tập trung nguồn lực vào Siberia và Viễn Đông",
+              "name_en": "Policy consequence: Focus resources on Siberia and the Far East",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.01,
+                "construction": 0.02,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ tham vọng hải quân ở Thái Bình Dương",
+          "label_en": "Preserve Pacific naval ambitions",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_alaska_sale_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ tham vọng hải quân ở Thái Bình Dương",
+              "name_en": "Policy consequence: Preserve Pacific naval ambitions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "tax": -0.01,
+                "prestige": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_municipal_reform",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1870-01-01",
+        "1871-12-31"
+      ],
+      "date_historical": "1870-06-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1870,
+            "to": 1871
+          }
+        ],
+        "fire_date": "1870-06-16"
+      },
+      "title_vi": "Cải cách đô thị mở rộng hội đồng thành phố",
+      "title_en": "The Municipal Reform",
+      "text_vi": "Cải cách đô thị tạo hội đồng thành phố được bầu với trách nhiệm về dịch vụ công và hạ tầng. Giới thương nhân và chuyên gia có thêm tiếng nói, song chính quyền vẫn giữ quyền giám sát và giới hạn quyền tham gia chính trị.",
+      "text_en": "The municipal reform creates elected city councils responsible for public services and infrastructure. Merchants and professionals gain a greater voice, while the state retains oversight and limits political participation.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng quyền tự quản và trách nhiệm tài chính",
+          "label_en": "Expand local autonomy and fiscal accountability",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_municipal_reform_historical",
+              "name_vi": "Hệ quả chính sách: Tăng quyền tự quản và trách nhiệm tài chính",
+              "name_en": "Policy consequence: Expand local autonomy and fiscal accountability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.025,
+                "legitimacy": 0.4,
+                "tax": 0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì quyền phủ quyết của thống đốc",
+          "label_en": "Retain the governor's veto",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_municipal_reform_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì quyền phủ quyết của thống đốc",
+              "name_en": "Policy consequence: Retain the governor's veto",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": 0.2,
+                "reform": -0.002
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "oldenburg"
+      ]
+    },
+    {
+      "id": "rus_to_the_people_movement",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1873-01-01",
+        "1874-12-31"
+      ],
+      "date_historical": "1873-09-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1873,
+            "to": 1874
+          }
+        ],
+        "fire_date": "1873-09-01"
+      },
+      "title_vi": "Phong trào 'Đi về với nhân dân'",
+      "title_en": "The Going to the People Movement",
+      "text_vi": "Những người dân túy trẻ rời thành phố tới nông thôn để tuyên truyền cải cách xã hội và chống chế độ chuyên chế. Nhiều người bị bắt hoặc bị dân làng nghi ngờ, cho thấy khoảng cách giữa trí thức cách mạng và cộng đồng nông dân.",
+      "text_en": "Young populists leave the cities for the countryside to spread social reform and opposition to autocracy. Many are arrested or distrusted by villagers, revealing the distance between revolutionary intellectuals and peasant communities.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở kênh đối thoại và cải thiện giáo dục nông thôn",
+          "label_en": "Open dialogue and improve rural education",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_to_the_people_movement_historical",
+              "name_vi": "Hệ quả chính sách: Mở kênh đối thoại và cải thiện giáo dục nông thôn",
+              "name_en": "Policy consequence: Open dialogue and improve rural education",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.008,
+                "radicalism": -0.002,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đàn áp mạng lưới tuyên truyền",
+          "label_en": "Suppress the propaganda networks",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_to_the_people_movement_alternative",
+              "name_vi": "Hệ quả chính sách: Đàn áp mạng lưới tuyên truyền",
+              "name_en": "Policy consequence: Suppress the propaganda networks",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "radicalism": 0.01,
+                "legitimacy": -0.5
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "stanford"
+      ]
+    },
+    {
+      "id": "rus_universal_conscription",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1874-01-01",
+        "1875-12-31"
+      ],
+      "date_historical": "1874-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1874,
+            "to": 1875
+          }
+        ],
+        "fire_date": "1874-01-01"
+      },
+      "title_vi": "Cải cách nghĩa vụ quân sự toàn dân",
+      "title_en": "Universal Military Conscription",
+      "text_vi": "Cải cách quân sự thay thế hệ thống tuyển quân cũ bằng nghĩa vụ quân sự rộng hơn, đồng thời giảm thời gian phục vụ thường trực. Nhà nước kỳ vọng xây dựng lực lượng dự bị lớn hơn nhưng phải đầu tư vào huấn luyện và giáo dục cơ bản.",
+      "text_en": "Military reform replaces older recruitment practices with broader conscription and shorter active service. The state expects a larger reserve force but must invest in training and basic education.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chuẩn hóa huấn luyện và giáo dục tân binh",
+          "label_en": "Standardise training and recruit education",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_universal_conscription_historical",
+              "name_vi": "Hệ quả chính sách: Chuẩn hóa huấn luyện và giáo dục tân binh",
+              "name_en": "Policy consequence: Standardise training and recruit education",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.055,
+                "literacy": 0.005,
+                "tax": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên số lượng quân dự bị",
+          "label_en": "Prioritise reserve numbers",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_universal_conscription_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên số lượng quân dự bị",
+              "name_en": "Policy consequence: Prioritise reserve numbers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "tax": 0.01,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "oldenburg"
+      ]
+    },
+    {
+      "id": "rus_saint_petersburg_treaty_japan",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1875-01-01",
+        "1876-12-31"
+      ],
+      "date_historical": "1875-05-07",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1875,
+            "to": 1876
+          }
+        ],
+        "fire_date": "1875-05-07"
+      },
+      "title_vi": "Hiệp ước St Petersburg đổi Sakhalin lấy quần đảo Kuril",
+      "title_en": "The Treaty of St Petersburg with Japan",
+      "text_vi": "Nga và Nhật Bản thỏa thuận phân định quyền kiểm soát Sakhalin và quần đảo Kuril. Việc xác lập biên giới giảm nguy cơ xung đột trước mắt nhưng đặt nền móng cho cạnh tranh chiến lược tại Thái Bình Dương.",
+      "text_en": "Russia and Japan agree on the status of Sakhalin and the Kuril Islands. The settlement reduces immediate conflict but lays the groundwork for strategic competition in the Pacific.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đầu tư vào cảng và hiện diện Viễn Đông",
+          "label_en": "Invest in ports and a Far Eastern presence",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_saint_petersburg_treaty_japan_historical",
+              "name_vi": "Hệ quả chính sách: Đầu tư vào cảng và hiện diện Viễn Đông",
+              "name_en": "Policy consequence: Invest in ports and a Far Eastern presence",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.025,
+                "trade": 0.015,
+                "army": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giảm chi phí và ưu tiên biên giới phía tây",
+          "label_en": "Reduce costs and prioritise the western frontier",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_saint_petersburg_treaty_japan_alternative",
+              "name_vi": "Hệ quả chính sách: Giảm chi phí và ưu tiên biên giới phía tây",
+              "name_en": "Policy consequence: Reduce costs and prioritise the western frontier",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.01,
+                "army": -0.01,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_russo_turkish_war",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1877-01-01",
+        "1878-12-31"
+      ],
+      "date_historical": "1877-04-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1877,
+            "to": 1878
+          }
+        ],
+        "fire_date": "1877-04-24"
+      },
+      "title_vi": "Chiến tranh Nga–Ottoman bùng nổ",
+      "title_en": "The Russo-Turkish War",
+      "text_vi": "Nga tuyên chiến với Ottoman trong bối cảnh khủng hoảng Balkan và phong trào đòi độc lập của các dân tộc Cơ Đốc giáo. Chiến dịch quân sự đặt ra bài toán về tiếp tế qua sông Danube, phối hợp đồng minh và phản ứng của các cường quốc châu Âu.",
+      "text_en": "Russia declares war on the Ottoman Empire amid the Balkan crisis and Christian national movements. The campaign tests Danube supply lines, allied coordination and the reactions of Europe's great powers.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Theo đuổi mục tiêu chiến tranh có giới hạn",
+          "label_en": "Pursue limited war aims",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_russo_turkish_war_historical",
+              "name_vi": "Hệ quả chính sách: Theo đuổi mục tiêu chiến tranh có giới hạn",
+              "name_en": "Policy consequence: Pursue limited war aims",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "war_exhaustion": 0.15,
+                "prestige": 0.03
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng chiến dịch để áp đặt kết quả quyết định",
+          "label_en": "Expand the campaign for a decisive settlement",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_russo_turkish_war_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng chiến dịch để áp đặt kết quả quyết định",
+              "name_en": "Policy consequence: Expand the campaign for a decisive settlement",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.08,
+                "war_exhaustion": 0.2,
+                "tax": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_congress_berlin",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1878-01-01",
+        "1879-12-31"
+      ],
+      "date_historical": "1878-07-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1878,
+            "to": 1879
+          }
+        ],
+        "fire_date": "1878-07-13"
+      },
+      "title_vi": "Đại hội Berlin điều chỉnh kết quả chiến tranh",
+      "title_en": "The Congress of Berlin",
+      "text_vi": "Các cường quốc sửa đổi những điều khoản của Hiệp ước San Stefano, hạn chế lợi ích mà Nga đạt được sau chiến tranh. Triều đình phải chấp nhận một thỏa hiệp ngoại giao, đồng thời đánh giá lại quan hệ với Đức, Áo-Hung và các nước Balkan.",
+      "text_en": "The powers revise the Treaty of San Stefano and limit Russia's gains from the war. The court must accept a diplomatic compromise and reassess relations with Germany, Austria-Hungary and the Balkan states.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận cân bằng quyền lực và củng cố ngoại giao",
+          "label_en": "Accept the balance of power and strengthen diplomacy",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_congress_berlin_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận cân bằng quyền lực và củng cố ngoại giao",
+              "name_en": "Policy consequence: Accept the balance of power and strengthen diplomacy",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.006,
+                "legitimacy": 0.4,
+                "war_exhaustion": -0.05
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm cách phá vỡ dàn xếp bằng sức ép",
+          "label_en": "Try to overturn the settlement through pressure",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_congress_berlin_alternative",
+              "name_vi": "Hệ quả chính sách: Tìm cách phá vỡ dàn xếp bằng sức ép",
+              "name_en": "Policy consequence: Try to overturn the settlement through pressure",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.02,
+                "army": 0.025,
+                "trade": -0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_land_and_liberty_split",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1879-01-01",
+        "1880-12-31"
+      ],
+      "date_historical": "1879-08-26",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1879,
+            "to": 1880
+          }
+        ],
+        "fire_date": "1879-08-26"
+      },
+      "title_vi": "Phong trào Đất đai và Tự do chia rẽ",
+      "title_en": "The Split of Land and Liberty",
+      "text_vi": "Tổ chức cách mạng Đất đai và Tự do chia thành các nhóm có chiến lược khác nhau về tuyên truyền nông thôn và khủng bố chính trị. Sự phân hóa làm tăng nguy cơ bạo lực chính trị và tạo thêm lý do cho chính quyền mở rộng đàn áp.",
+      "text_en": "The revolutionary Land and Liberty organisation divides over rural agitation and political terror. The split raises the risk of political violence and gives the government further grounds for repression.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng cải cách để giảm sức hút cách mạng",
+          "label_en": "Expand reform to reduce revolutionary appeal",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_land_and_liberty_split_historical",
+              "name_vi": "Hệ quả chính sách: Mở rộng cải cách để giảm sức hút cách mạng",
+              "name_en": "Policy consequence: Expand reform to reduce revolutionary appeal",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.006,
+                "legitimacy": 0.3,
+                "radicalism": -0.002
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng cường truy quét các tổ chức bí mật",
+          "label_en": "Intensify the hunt for underground groups",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_land_and_liberty_split_alternative",
+              "name_vi": "Hệ quả chính sách: Tăng cường truy quét các tổ chức bí mật",
+              "name_en": "Policy consequence: Intensify the hunt for underground groups",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "radicalism": 0.012,
+                "legitimacy": -0.6
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "stanford"
+      ]
+    },
+    {
+      "id": "rus_alexander_ii_assassination",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1881-01-01",
+        "1882-12-31"
+      ],
+      "date_historical": "1881-03-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1881,
+            "to": 1882
+          }
+        ],
+        "fire_date": "1881-03-13"
+      },
+      "title_vi": "Aleksandr II bị ám sát",
+      "title_en": "The Assassination of Alexander II",
+      "text_vi": "Thành viên Narodnaya Volya ám sát Aleksandr II tại St Petersburg, chấm dứt triều đại của vị hoàng đế khởi xướng Đại cải cách. Vụ ám sát làm thay đổi cán cân trong triều đình và mở đầu thời kỳ phản ứng dưới Aleksandr III.",
+      "text_en": "Members of Narodnaya Volya assassinate Alexander II in St Petersburg, ending the reign of the emperor who launched the Great Reforms. The assassination shifts the balance at court and ushers in a period of reaction under Alexander III.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ổn định kế vị và giữ lại các cải cách hữu ích",
+          "label_en": "Secure the succession and retain useful reforms",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_alexander_ii_assassination_historical",
+              "name_vi": "Hệ quả chính sách: Ổn định kế vị và giữ lại các cải cách hữu ích",
+              "name_en": "Policy consequence: Secure the succession and retain useful reforms",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.6,
+                "reform": 0.004,
+                "police": 0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đảo ngược cải cách và mở rộng đàn áp",
+          "label_en": "Reverse reforms and expand repression",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_alexander_ii_assassination_alternative",
+              "name_vi": "Hệ quả chính sách: Đảo ngược cải cách và mở rộng đàn áp",
+              "name_en": "Policy consequence: Reverse reforms and expand repression",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.05,
+                "reform": -0.01,
+                "radicalism": 0.014
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_anti_jewish_pogroms",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1881-01-01",
+        "1882-12-31"
+      ],
+      "date_historical": "1881-04-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1881,
+            "to": 1882
+          }
+        ],
+        "fire_date": "1881-04-15"
+      },
+      "title_vi": "Làn sóng pogrom chống người Do Thái",
+      "title_en": "Anti-Jewish Pogroms",
+      "text_vi": "Bạo lực chống người Do Thái lan rộng tại một số khu vực phía nam đế quốc trong bối cảnh khủng hoảng xã hội và tin đồn kích động. Cách chính quyền phản ứng sẽ định hình an ninh cộng đồng, niềm tin vào pháp luật và quan hệ giữa các nhóm dân cư.",
+      "text_en": "Violence against Jewish communities spreads in parts of the empire's south amid social crisis and inflammatory rumours. The government's response will shape communal security, trust in law and relations among the empire's populations.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ dân thường và truy tố kẻ kích động",
+          "label_en": "Protect civilians and prosecute instigators",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_anti_jewish_pogroms_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ dân thường và truy tố kẻ kích động",
+              "name_en": "Policy consequence: Protect civilians and prosecute instigators",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.5,
+                "police": 0.025,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dung túng phân biệt đối xử để xoa dịu phe bảo thủ",
+          "label_en": "Tolerate discrimination to appease conservatives",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_anti_jewish_pogroms_alternative",
+              "name_vi": "Hệ quả chính sách: Dung túng phân biệt đối xử để xoa dịu phe bảo thủ",
+              "name_en": "Policy consequence: Tolerate discrimination to appease conservatives",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.012,
+                "legitimacy": -0.8,
+                "police": -0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "stanford"
+      ]
+    },
+    {
+      "id": "rus_may_laws",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1882-01-01",
+        "1883-12-31"
+      ],
+      "date_historical": "1882-05-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1882,
+            "to": 1883
+          }
+        ],
+        "fire_date": "1882-05-03"
+      },
+      "title_vi": "Các đạo luật tháng Năm hạn chế người Do Thái",
+      "title_en": "The May Laws",
+      "text_vi": "Chính quyền ban hành các quy định hạn chế quyền cư trú và hoạt động kinh tế của người Do Thái tại nhiều khu vực. Chính sách làm gia tăng bất bình đẳng pháp lý, thúc đẩy di cư và làm suy giảm lòng tin của các cộng đồng thiểu số vào nhà nước.",
+      "text_en": "The government issues restrictions on Jewish residence and economic activity in many areas. The measures deepen legal inequality, encourage emigration and weaken minority communities' trust in the state.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ nguyên tắc pháp luật bình đẳng",
+          "label_en": "Protect equal legal treatment",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_may_laws_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ nguyên tắc pháp luật bình đẳng",
+              "name_en": "Policy consequence: Protect equal legal treatment",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.5,
+                "literacy": 0.004,
+                "radicalism": -0.002
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì hạn chế để củng cố phe bảo thủ",
+          "label_en": "Retain restrictions to consolidate conservative support",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_may_laws_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì hạn chế để củng cố phe bảo thủ",
+              "name_en": "Policy consequence: Retain restrictions to consolidate conservative support",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.014,
+                "legitimacy": -0.9,
+                "attraction": -0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "stanford"
+      ]
+    },
+    {
+      "id": "rus_university_counterreform",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1884-01-01",
+        "1885-12-31"
+      ],
+      "date_historical": "1884-08-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1884,
+            "to": 1885
+          }
+        ],
+        "fire_date": "1884-08-01"
+      },
+      "title_vi": "Quy chế đại học mới thu hẹp quyền tự trị",
+      "title_en": "The University Counter-Reform",
+      "text_vi": "Quy chế đại học năm 1884 thu hẹp quyền tự trị của các trường và tăng kiểm soát của Bộ Giáo dục. Chính quyền kỳ vọng ngăn hoạt động chính trị trong sinh viên, nhưng việc hạn chế tự do học thuật có thể làm chậm đổi mới khoa học.",
+      "text_en": "The 1884 university statute reduces institutional autonomy and increases ministry control. The government hopes to curb student politics, but restrictions on academic freedom may slow scientific innovation.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng giám sát nhưng bảo vệ nghiên cứu khoa học",
+          "label_en": "Increase oversight while protecting research",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_university_counterreform_historical",
+              "name_vi": "Hệ quả chính sách: Tăng giám sát nhưng bảo vệ nghiên cứu khoa học",
+              "name_en": "Policy consequence: Increase oversight while protecting research",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.006,
+                "police": 0.015,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đặt đại học dưới kiểm soát trực tiếp",
+          "label_en": "Place universities under direct control",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_university_counterreform_alternative",
+              "name_vi": "Hệ quả chính sách: Đặt đại học dưới kiểm soát trực tiếp",
+              "name_en": "Policy consequence: Place universities under direct control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": -0.01,
+                "police": 0.03,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "stanford"
+      ]
+    },
+    {
+      "id": "rus_cooks_children_circular",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1887-01-01",
+        "1888-12-31"
+      ],
+      "date_historical": "1887-05-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1887,
+            "to": 1888
+          }
+        ],
+        "fire_date": "1887-05-01"
+      },
+      "title_vi": "Thông tư 'con cái đầu bếp' giới hạn giáo dục",
+      "title_en": "The 'Cook's Children' Circular",
+      "text_vi": "Thông tư của Bộ trưởng Giáo dục Ivan Delyanov khuyến khích hạn chế con em tầng lớp nghèo tiếp cận trường trung học. Chính sách củng cố phân tầng xã hội và làm gia tăng bất mãn đối với đặc quyền giáo dục của giới tinh hoa.",
+      "text_en": "Education minister Ivan Delyanov's circular encourages restricting access to secondary schools for children from poorer households. The policy reinforces social stratification and resentment toward elite educational privilege.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng giáo dục theo năng lực",
+          "label_en": "Expand education by ability",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_cooks_children_circular_historical",
+              "name_vi": "Hệ quả chính sách: Mở rộng giáo dục theo năng lực",
+              "name_en": "Policy consequence: Expand education by ability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.01,
+                "research": 0.005,
+                "legitimacy": 0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ trường học như đặc quyền xã hội",
+          "label_en": "Preserve schools as a social privilege",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_cooks_children_circular_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ trường học như đặc quyền xã hội",
+              "name_en": "Policy consequence: Preserve schools as a social privilege",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": -0.008,
+                "radicalism": 0.008,
+                "legitimacy": -0.5
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "stanford"
+      ]
+    },
+    {
+      "id": "rus_trans_siberian_railway",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1891-01-01",
+        "1892-12-31"
+      ],
+      "date_historical": "1891-05-31",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1891,
+            "to": 1892
+          }
+        ],
+        "fire_date": "1891-05-31"
+      },
+      "title_vi": "Khởi công tuyến đường sắt xuyên Siberia",
+      "title_en": "The Trans-Siberian Railway Begins",
+      "text_vi": "Công trình đường sắt xuyên Siberia khởi đầu nỗ lực nối phần châu Âu của đế quốc với Thái Bình Dương bằng một trục vận tải liên tục. Dự án có ý nghĩa quân sự và kinh tế lớn nhưng đòi hỏi vốn dài hạn, kỹ sư và năng lực quản trị ở vùng xa.",
+      "text_en": "Construction of the Trans-Siberian Railway begins, aiming to connect European Russia with the Pacific through a continuous transport corridor. The project has major military and economic value but requires long-term capital, engineers and remote administration.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên tuyến chính và tiêu chuẩn kỹ thuật",
+          "label_en": "Prioritise the main line and engineering standards",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_trans_siberian_railway_historical",
+              "name_vi": "Hệ quả chính sách: Ưu tiên tuyến chính và tiêu chuẩn kỹ thuật",
+              "name_en": "Policy consequence: Prioritise the main line and engineering standards",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.055,
+                "trade": 0.025,
+                "research": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng nhanh bằng nhượng quyền và vốn tư nhân",
+          "label_en": "Expand rapidly through concessions and private capital",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_trans_siberian_railway_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng nhanh bằng nhượng quyền và vốn tư nhân",
+              "name_en": "Policy consequence: Expand rapidly through concessions and private capital",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.035,
+                "tax": -0.01,
+                "trade": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_russian_famine_1891",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1891-01-01",
+        "1892-12-31"
+      ],
+      "date_historical": "1891-09-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1891,
+            "to": 1892
+          }
+        ],
+        "fire_date": "1891-09-01"
+      },
+      "title_vi": "Nạn đói 1891–1892",
+      "title_en": "The Russian Famine of 1891–1892",
+      "text_vi": "Mất mùa và khó khăn vận tải gây ra nạn đói nghiêm trọng tại nhiều tỉnh, phơi bày sự mong manh của nông nghiệp và hệ thống cứu trợ. Nhà nước phải lựa chọn giữa cứu tế quy mô lớn, nhập khẩu lương thực và bảo vệ ngân sách.",
+      "text_en": "Crop failures and transport difficulties produce a severe famine across several provinces, exposing the fragility of agriculture and relief systems. The state must choose between large-scale relief, food imports and budget protection.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở cứu trợ và điều phối vận tải lương thực",
+          "label_en": "Launch relief and coordinate food transport",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_russian_famine_1891_historical",
+              "name_vi": "Hệ quả chính sách: Mở cứu trợ và điều phối vận tải lương thực",
+              "name_en": "Policy consequence: Launch relief and coordinate food transport",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.8,
+                "radicalism": -0.006,
+                "tax": -0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ ngân sách bằng cứu trợ có chọn lọc",
+          "label_en": "Protect the budget through selective relief",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_russian_famine_1891_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ ngân sách bằng cứu trợ có chọn lọc",
+              "name_en": "Policy consequence: Protect the budget through selective relief",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.012,
+                "radicalism": 0.012,
+                "birth": -0.002
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "history"
+      ]
+    },
+    {
+      "id": "rus_nicholas_ii_accession",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1894-01-01",
+        "1895-12-31"
+      ],
+      "date_historical": "1894-11-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1894,
+            "to": 1895
+          }
+        ],
+        "fire_date": "1894-11-01"
+      },
+      "title_vi": "Nicholas II kế vị Aleksandr III",
+      "title_en": "Nicholas II Ascends the Throne",
+      "text_vi": "Aleksandr III qua đời và Nicholas II trở thành hoàng đế trong bối cảnh công nghiệp hóa, đô thị hóa và bất mãn xã hội tăng nhanh. Nhà vua cam kết duy trì nguyên tắc chuyên chế, khiến kỳ vọng cải cách chính trị tiếp tục bị trì hoãn.",
+      "text_en": "Alexander III dies and Nicholas II becomes emperor amid accelerating industrialisation, urbanisation and social discontent. The new tsar reaffirms autocracy, postponing expectations of political reform.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Kết hợp hiện đại hóa kinh tế với cải cách thể chế",
+          "label_en": "Combine economic modernisation with institutional reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_nicholas_ii_accession_historical",
+              "name_vi": "Hệ quả chính sách: Kết hợp hiện đại hóa kinh tế với cải cách thể chế",
+              "name_en": "Policy consequence: Combine economic modernisation with institutional reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.025,
+                "research": 0.006,
+                "legitimacy": 0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo vệ chuyên chế và tăng kiểm soát xã hội",
+          "label_en": "Defend autocracy and tighten social control",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_nicholas_ii_accession_alternative",
+              "name_vi": "Hệ quả chính sách: Bảo vệ chuyên chế và tăng kiểm soát xã hội",
+              "name_en": "Policy consequence: Defend autocracy and tighten social control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "reform": -0.005,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_nicholas_coronation",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1896-01-01",
+        "1897-12-31"
+      ],
+      "date_historical": "1896-05-26",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1896,
+            "to": 1897
+          }
+        ],
+        "fire_date": "1896-05-26"
+      },
+      "title_vi": "Lễ đăng quang Nicholas II và thảm kịch Khodynka",
+      "title_en": "Nicholas II's Coronation and the Khodynka Tragedy",
+      "text_vi": "Lễ đăng quang tại Moscow bị phủ bóng bởi thảm kịch Khodynka, nơi đám đông chen lấn khiến nhiều người thiệt mạng. Cách triều đình ứng phó với thảm họa trở thành phép thử sớm đối với hình ảnh và trách nhiệm của hoàng gia.",
+      "text_en": "The coronation festivities in Moscow are overshadowed by the Khodynka disaster, where a crowd crush kills many people. The court's response becomes an early test of the monarchy's public image and responsibility.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Công khai nhận trách nhiệm và cứu trợ nạn nhân",
+          "label_en": "Accept responsibility publicly and aid victims",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_nicholas_coronation_historical",
+              "name_vi": "Hệ quả chính sách: Công khai nhận trách nhiệm và cứu trợ nạn nhân",
+              "name_en": "Policy consequence: Accept responsibility publicly and aid victims",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.6,
+                "radicalism": -0.003,
+                "prestige": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ nghi thức hoàng gia và hạn chế thông tin",
+          "label_en": "Preserve royal ceremony and restrict information",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_nicholas_coronation_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ nghi thức hoàng gia và hạn chế thông tin",
+              "name_en": "Policy consequence: Preserve royal ceremony and restrict information",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.8,
+                "radicalism": 0.008,
+                "police": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_first_general_census",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1897-01-01",
+        "1898-12-31"
+      ],
+      "date_historical": "1897-01-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1897,
+            "to": 1898
+          }
+        ],
+        "fire_date": "1897-01-28"
+      },
+      "title_vi": "Điều tra dân số toàn đế quốc",
+      "title_en": "The First General Census",
+      "text_vi": "Cuộc điều tra dân số đầu tiên trên quy mô toàn đế quốc cung cấp dữ liệu mới về dân số, ngôn ngữ, tôn giáo và nghề nghiệp. Thông tin giúp cải thiện quản trị nhưng cũng cho thấy mức độ đa dạng và bất bình đẳng mà chính quyền phải xử lý.",
+      "text_en": "The first empire-wide census provides new data on population, language, religion and occupation. The information can improve administration but also reveals the diversity and inequalities the state must manage.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Dùng dữ liệu để hoạch định dịch vụ công",
+          "label_en": "Use the data to plan public services",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_first_general_census_historical",
+              "name_vi": "Hệ quả chính sách: Dùng dữ liệu để hoạch định dịch vụ công",
+              "name_en": "Policy consequence: Use the data to plan public services",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.01,
+                "literacy": 0.005,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên thống kê phục vụ thuế và nghĩa vụ quân sự",
+          "label_en": "Prioritise statistics for taxation and conscription",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_first_general_census_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên thống kê phục vụ thuế và nghĩa vụ quân sự",
+              "name_en": "Policy consequence: Prioritise statistics for taxation and conscription",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.015,
+                "police": 0.01,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_social_democratic_party",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1898-01-01",
+        "1899-12-31"
+      ],
+      "date_historical": "1898-03-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1898,
+            "to": 1899
+          }
+        ],
+        "fire_date": "1898-03-13"
+      },
+      "title_vi": "Đại hội đầu tiên của Đảng Công nhân Dân chủ Xã hội Nga",
+      "title_en": "The Russian Social Democratic Labour Party Is Founded",
+      "text_vi": "Các nhóm Marxist tập hợp tại Minsk để thành lập Đảng Công nhân Dân chủ Xã hội Nga. Tổ chức còn non trẻ nhưng đánh dấu bước phát triển của phong trào công nhân có hệ thống và sự đối đầu ngày càng rõ với chế độ chuyên chế.",
+      "text_en": "Marxist groups meet in Minsk to establish the Russian Social Democratic Labour Party. The young organisation marks the growth of an organised labour movement and a clearer confrontation with autocracy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở kênh cải cách lao động hợp pháp",
+          "label_en": "Open channels for lawful labour reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_social_democratic_party_historical",
+              "name_vi": "Hệ quả chính sách: Mở kênh cải cách lao động hợp pháp",
+              "name_en": "Policy consequence: Open channels for lawful labour reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.006,
+                "legitimacy": 0.3,
+                "radicalism": -0.002
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Cấm tổ chức chính trị và tăng truy quét",
+          "label_en": "Ban political organisation and intensify raids",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_social_democratic_party_alternative",
+              "name_vi": "Hệ quả chính sách: Cấm tổ chức chính trị và tăng truy quét",
+              "name_en": "Policy consequence: Ban political organisation and intensify raids",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.035,
+                "radicalism": 0.01,
+                "legitimacy": -0.5
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "stanford"
+      ]
+    },
+    {
+      "id": "rus_social_democratic_split",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1903-01-01",
+        "1904-12-31"
+      ],
+      "date_historical": "1903-08-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1903,
+            "to": 1904
+          }
+        ],
+        "fire_date": "1903-08-01"
+      },
+      "title_vi": "Đảng Dân chủ Xã hội chia thành Bolshevik và Menshevik",
+      "title_en": "The Bolshevik–Menshevik Split",
+      "text_vi": "Đại hội lần thứ hai của đảng làm bộc lộ bất đồng về tư cách thành viên, tổ chức và chiến lược cách mạng. Hai phe Bolshevik và Menshevik hình thành, tạo nên những dòng chính trị có ảnh hưởng sâu rộng trong các biến động sau này.",
+      "text_en": "The party's Second Congress exposes disagreements over membership, organisation and revolutionary strategy. Bolshevik and Menshevik factions emerge, creating political currents that will shape later upheavals.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Theo dõi nhưng không đẩy phong trào vào bí mật",
+          "label_en": "Monitor without driving the movement underground",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_social_democratic_split_historical",
+              "name_vi": "Hệ quả chính sách: Theo dõi nhưng không đẩy phong trào vào bí mật",
+              "name_en": "Policy consequence: Monitor without driving the movement underground",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "reform": 0.004,
+                "police": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đàn áp các phe phái đối lập",
+          "label_en": "Suppress the opposing factions",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_social_democratic_split_alternative",
+              "name_vi": "Hệ quả chính sách: Đàn áp các phe phái đối lập",
+              "name_en": "Policy consequence: Suppress the opposing factions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.035,
+                "radicalism": 0.012,
+                "legitimacy": -0.6
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "stanford"
+      ]
+    },
+    {
+      "id": "rus_russo_japanese_war",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1904-01-01",
+        "1905-12-31"
+      ],
+      "date_historical": "1904-02-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1904,
+            "to": 1905
+          }
+        ],
+        "fire_date": "1904-02-08"
+      },
+      "title_vi": "Nhật Bản tấn công hạm đội Nga tại Port Arthur",
+      "title_en": "Japan Attacks the Russian Fleet at Port Arthur",
+      "text_vi": "Cuộc tấn công bất ngờ của Nhật Bản mở đầu chiến tranh Nga–Nhật, đe dọa vị thế của Nga tại Mãn Châu và Triều Tiên. Khoảng cách địa lý, hậu cần đường sắt và sự sẵn sàng của hạm đội trở thành những vấn đề sống còn.",
+      "text_en": "Japan's surprise attack opens the Russo-Japanese War and threatens Russia's position in Manchuria and Korea. Distance, railway logistics and fleet readiness become decisive concerns.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập trung lực lượng và tiếp tế cho Viễn Đông",
+          "label_en": "Concentrate forces and supply in the Far East",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_russo_japanese_war_historical",
+              "name_vi": "Hệ quả chính sách: Tập trung lực lượng và tiếp tế cho Viễn Đông",
+              "name_en": "Policy consequence: Concentrate forces and supply in the Far East",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "war_exhaustion": 0.15,
+                "tax": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm giải pháp ngoại giao sớm",
+          "label_en": "Seek an early diplomatic settlement",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_russo_japanese_war_alternative",
+              "name_vi": "Hệ quả chính sách: Tìm giải pháp ngoại giao sớm",
+              "name_en": "Policy consequence: Seek an early diplomatic settlement",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.1,
+                "legitimacy": -0.6,
+                "prestige": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_liaoyang_campaign",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1904-01-01",
+        "1905-12-31"
+      ],
+      "date_historical": "1904-08-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1904,
+            "to": 1905
+          }
+        ],
+        "fire_date": "1904-08-24"
+      },
+      "title_vi": "Trận Liêu Dương và chiến dịch Mãn Châu",
+      "title_en": "The Liaoyang Campaign",
+      "text_vi": "Các lực lượng Nga và Nhật giao chiến tại Liêu Dương trong một chiến dịch lớn ở Mãn Châu. Dù quân Nga rút lui có tổ chức, những thất bại liên tiếp làm suy giảm tinh thần và bộc lộ khó khăn trong chỉ huy ở khoảng cách xa thủ đô.",
+      "text_en": "Russian and Japanese forces clash at Liaoyang in a major Manchurian campaign. Although Russian forces withdraw in an orderly manner, repeated setbacks damage morale and expose command difficulties far from the capital.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Cải thiện phối hợp bộ chỉ huy và đường tiếp tế",
+          "label_en": "Improve command coordination and supply lines",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_liaoyang_campaign_historical",
+              "name_vi": "Hệ quả chính sách: Cải thiện phối hợp bộ chỉ huy và đường tiếp tế",
+              "name_en": "Policy consequence: Improve command coordination and supply lines",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "research": 0.006,
+                "war_exhaustion": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Thay tướng và tăng áp lực tiến công",
+          "label_en": "Replace commanders and intensify the offensive",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_liaoyang_campaign_alternative",
+              "name_vi": "Hệ quả chính sách: Thay tướng và tăng áp lực tiến công",
+              "name_en": "Policy consequence: Replace commanders and intensify the offensive",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "war_exhaustion": 0.14,
+                "legitimacy": -0.5
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_bloody_sunday",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1905-01-01",
+        "1906-12-31"
+      ],
+      "date_historical": "1905-01-22",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1905,
+            "to": 1906
+          }
+        ],
+        "fire_date": "1905-01-22"
+      },
+      "title_vi": "Ngày Chủ nhật Đẫm máu tại St Petersburg",
+      "title_en": "Bloody Sunday",
+      "text_vi": "Đoàn người lao động do linh mục Georgy Gapon dẫn đầu tiến tới Cung điện Mùa Đông để trình kiến nghị, nhưng quân đội nổ súng vào đám đông. Bạo lực làm sụp đổ niềm tin của nhiều thần dân vào hình ảnh Sa hoàng như người bảo hộ và châm ngòi cho cách mạng 1905.",
+      "text_en": "Workers led by Father Georgy Gapon march toward the Winter Palace to present a petition, but troops fire on the crowd. The violence shatters many subjects' faith in the tsar as their protector and ignites the 1905 Revolution.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận điều tra và mở đối thoại chính trị",
+          "label_en": "Order an inquiry and open political dialogue",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_bloody_sunday_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận điều tra và mở đối thoại chính trị",
+              "name_en": "Policy consequence: Order an inquiry and open political dialogue",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": 0.5,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ban bố tình trạng khẩn cấp và đàn áp",
+          "label_en": "Declare an emergency and repress unrest",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_bloody_sunday_alternative",
+              "name_vi": "Hệ quả chính sách: Ban bố tình trạng khẩn cấp và đàn áp",
+              "name_en": "Policy consequence: Declare an emergency and repress unrest",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.05,
+                "radicalism": 0.018,
+                "legitimacy": -1.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ],
+      "image": {
+        "ref": "ill_rus_bloody_sunday",
+        "credit": "Vyacheslav Viskovsky, 1925 reconstruction / Commons PD-Art reproduction",
+        "license": "Underlying 1925 work identified as public domain in the United States; confirm source-country term during ingestion"
+      }
+    },
+    {
+      "id": "rus_potemkin_mutiny",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1905-01-01",
+        "1906-12-31"
+      ],
+      "date_historical": "1905-06-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1905,
+            "to": 1906
+          }
+        ],
+        "fire_date": "1905-06-14"
+      },
+      "title_vi": "Thủy thủ thiết giáp hạm Potemkin nổi loạn",
+      "title_en": "The Potemkin Mutiny",
+      "text_vi": "Thủy thủ trên thiết giáp hạm Potemkin nổi dậy sau tranh chấp về điều kiện sinh hoạt và kỷ luật trên tàu. Vụ binh biến cho thấy bất mãn đã lan vào lực lượng vũ trang, đe dọa khả năng chính quyền dựa vào quân đội để duy trì trật tự.",
+      "text_en": "Sailors aboard the battleship Potemkin mutiny after disputes over conditions and discipline. The revolt shows that discontent has reached the armed forces, threatening the government's reliance on the military to preserve order.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Cải thiện kỷ luật và điều kiện phục vụ",
+          "label_en": "Improve discipline and service conditions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_potemkin_mutiny_historical",
+              "name_vi": "Hệ quả chính sách: Cải thiện kỷ luật và điều kiện phục vụ",
+              "name_en": "Policy consequence: Improve discipline and service conditions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "legitimacy": 0.4,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Trừng phạt tập thể để tái lập quyền uy",
+          "label_en": "Use collective punishment to restore authority",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_potemkin_mutiny_alternative",
+              "name_vi": "Hệ quả chính sách: Trừng phạt tập thể để tái lập quyền uy",
+              "name_en": "Policy consequence: Use collective punishment to restore authority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "army": -0.02,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_october_manifesto",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1905-01-01",
+        "1906-12-31"
+      ],
+      "date_historical": "1905-10-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1905,
+            "to": 1906
+          }
+        ],
+        "fire_date": "1905-10-30"
+      },
+      "title_vi": "Tuyên ngôn tháng Mười hứa hẹn quyền dân sự và Duma",
+      "title_en": "The October Manifesto",
+      "text_vi": "Sau làn sóng đình công và bất ổn trên toàn quốc, Nicholas II ban hành Tuyên ngôn tháng Mười, hứa hẹn quyền tự do dân sự và một cơ quan lập pháp được bầu. Văn kiện mở ra lối thoát chính trị nhưng để lại tranh cãi về giới hạn quyền lực của hoàng đế.",
+      "text_en": "After nationwide strikes and unrest, Nicholas II issues the October Manifesto, promising civil liberties and an elected legislature. The document opens a political exit but leaves disputes over the limits of imperial authority.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thực thi cam kết và xây dựng nghị viện có thực quyền",
+          "label_en": "Implement the pledge and build a meaningful parliament",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_october_manifesto_historical",
+              "name_vi": "Hệ quả chính sách: Thực thi cam kết và xây dựng nghị viện có thực quyền",
+              "name_en": "Policy consequence: Implement the pledge and build a meaningful parliament",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 0.8,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ quyền phủ quyết hoàng gia ở mức tối đa",
+          "label_en": "Preserve maximum imperial veto power",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_october_manifesto_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ quyền phủ quyết hoàng gia ở mức tối đa",
+              "name_en": "Policy consequence: Preserve maximum imperial veto power",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "police": 0.015,
+                "radicalism": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_first_duma",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1906-01-01",
+        "1907-12-31"
+      ],
+      "date_historical": "1906-05-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1906,
+            "to": 1907
+          }
+        ],
+        "fire_date": "1906-05-10"
+      },
+      "title_vi": "Duma Quốc gia khóa I khai mạc",
+      "title_en": "The First State Duma Convenes",
+      "text_vi": "Duma đầu tiên khai mạc với kỳ vọng đưa các yêu cầu xã hội vào chính trường hợp pháp. Bất đồng về cải cách ruộng đất và trách nhiệm của chính phủ nhanh chóng khiến quan hệ giữa nghị viện và hoàng gia căng thẳng.",
+      "text_en": "The first Duma convenes amid hopes that social demands can enter lawful politics. Disputes over land reform and ministerial responsibility quickly strain relations between parliament and the crown.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đàm phán cải cách với đại biểu",
+          "label_en": "Negotiate reforms with deputies",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_first_duma_historical",
+              "name_vi": "Hệ quả chính sách: Đàm phán cải cách với đại biểu",
+              "name_en": "Policy consequence: Negotiate reforms with deputies",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": 0.7,
+                "research": 0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giải tán nghị viện nếu thách thức hoàng gia",
+          "label_en": "Dissolve the chamber if it challenges the crown",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_first_duma_alternative",
+              "name_vi": "Hệ quả chính sách: Giải tán nghị viện nếu thách thức hoàng gia",
+              "name_en": "Policy consequence: Dissolve the chamber if it challenges the crown",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "radicalism": 0.008,
+                "reform": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ],
+      "image": {
+        "ref": "ill_rus_first_duma",
+        "credit": "Russian Empire / archive photograph, 1906",
+        "license": "Commons file page states public domain in the United States; ingestion must verify source provenance and derivative size"
+      }
+    },
+    {
+      "id": "rus_stolypin_prime_minister",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1906-01-01",
+        "1907-12-31"
+      ],
+      "date_historical": "1906-07-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1906,
+            "to": 1907
+          }
+        ],
+        "fire_date": "1906-07-21"
+      },
+      "title_vi": "Pyotr Stolypin trở thành thủ tướng",
+      "title_en": "Pyotr Stolypin Becomes Prime Minister",
+      "text_vi": "Stolypin lên nắm chính phủ trong bối cảnh cách mạng chưa chấm dứt và nông thôn bất ổn. Ông kết hợp đàn áp các tổ chức cách mạng với chương trình cải cách nông nghiệp nhằm tạo tầng lớp nông dân sở hữu đất độc lập.",
+      "text_en": "Stolypin takes office while revolutionary unrest and rural instability continue. He combines repression of revolutionary groups with agrarian reform intended to create independent landowning peasants.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Kết hợp cải cách ruộng đất với trách nhiệm pháp lý",
+          "label_en": "Combine land reform with legal accountability",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_stolypin_prime_minister_historical",
+              "name_vi": "Hệ quả chính sách: Kết hợp cải cách ruộng đất với trách nhiệm pháp lý",
+              "name_en": "Policy consequence: Combine land reform with legal accountability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "construction": 0.015,
+                "legitimacy": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên trấn áp để khôi phục trật tự",
+          "label_en": "Prioritise repression to restore order",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_stolypin_prime_minister_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên trấn áp để khôi phục trật tự",
+              "name_en": "Policy consequence: Prioritise repression to restore order",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "radicalism": 0.01,
+                "legitimacy": -0.5
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_stolypin_land_reform",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1906-01-01",
+        "1907-12-31"
+      ],
+      "date_historical": "1906-11-22",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1906,
+            "to": 1907
+          }
+        ],
+        "fire_date": "1906-11-22"
+      },
+      "title_vi": "Sắc lệnh Stolypin thúc đẩy sở hữu đất tư nhân",
+      "title_en": "The Stolypin Agrarian Reform",
+      "text_vi": "Sắc lệnh tháng Mười Một cho phép nông dân rút khỏi cộng đồng làng và củng cố quyền sở hữu đất tư nhân. Cải cách nhằm tăng năng suất và tạo tầng lớp nông dân bảo thủ, nhưng tiến độ không đồng đều và vấp phải kháng cự tại nhiều địa phương.",
+      "text_en": "The November decree allows peasants to leave the village commune and consolidate private landholding. The reform aims to raise productivity and create a conservative peasantry, but progress is uneven and meets local resistance.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hỗ trợ tín dụng và tái phân bổ đất minh bạch",
+          "label_en": "Support credit and transparent land consolidation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_stolypin_land_reform_historical",
+              "name_vi": "Hệ quả chính sách: Hỗ trợ tín dụng và tái phân bổ đất minh bạch",
+              "name_en": "Policy consequence: Support credit and transparent land consolidation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.025,
+                "tax": 0.005,
+                "legitimacy": 0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đẩy nhanh cải cách bằng áp lực hành chính",
+          "label_en": "Accelerate reform through administrative pressure",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_stolypin_land_reform_alternative",
+              "name_vi": "Hệ quả chính sách: Đẩy nhanh cải cách bằng áp lực hành chính",
+              "name_en": "Policy consequence: Accelerate reform through administrative pressure",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.008,
+                "legitimacy": -0.4,
+                "reform": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_second_duma_dissolution",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1907-01-01",
+        "1908-12-31"
+      ],
+      "date_historical": "1907-06-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1907,
+            "to": 1908
+          }
+        ],
+        "fire_date": "1907-06-16"
+      },
+      "title_vi": "Duma khóa II bị giải tán và luật bầu cử thay đổi",
+      "title_en": "The Second Duma Is Dissolved",
+      "text_vi": "Nicholas II giải tán Duma khóa II và thay đổi luật bầu cử theo hướng có lợi cho các nhóm bảo thủ và địa chủ. Bước đi này tạo ổn định nghị viện ngắn hạn nhưng làm suy yếu tính đại diện của chế độ mới.",
+      "text_en": "Nicholas II dissolves the Second Duma and changes the electoral law in favour of conservative and landed interests. The move creates short-term parliamentary stability but weakens the representativeness of the new system.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm thỏa hiệp với các nhóm xã hội rộng hơn",
+          "label_en": "Seek compromise with broader social groups",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_second_duma_dissolution_historical",
+              "name_vi": "Hệ quả chính sách: Tìm thỏa hiệp với các nhóm xã hội rộng hơn",
+              "name_en": "Policy consequence: Seek compromise with broader social groups",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "reform": 0.004,
+                "radicalism": -0.002
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì hệ thống bầu cử hạn chế",
+          "label_en": "Retain the restricted electoral system",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_second_duma_dissolution_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì hệ thống bầu cử hạn chế",
+              "name_en": "Policy consequence: Retain the restricted electoral system",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.5,
+                "radicalism": 0.01,
+                "ig_landowners": 1.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge"
+      ]
+    },
+    {
+      "id": "rus_stolypin_assassination",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1911-01-01",
+        "1912-12-31"
+      ],
+      "date_historical": "1911-09-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1911,
+            "to": 1912
+          }
+        ],
+        "fire_date": "1911-09-14"
+      },
+      "title_vi": "Stolypin bị ám sát tại Kyiv",
+      "title_en": "The Assassination of Stolypin",
+      "text_vi": "Stolypin bị bắn tại nhà hát Kyiv trong chuyến thăm của hoàng gia và qua đời vài ngày sau đó. Cái chết của ông làm mất đi một nhân vật trung tâm trong chương trình cải cách nông nghiệp và khiến chính phủ thiếu một chiến lược ổn định dài hạn.",
+      "text_en": "Stolypin is shot at a Kyiv theatre during a royal visit and dies days later. His death removes a central figure in agrarian reform and leaves the government without a coherent long-term stabilisation strategy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tiếp tục cải cách và củng cố chính phủ dân sự",
+          "label_en": "Continue reforms and strengthen civilian government",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_stolypin_assassination_historical",
+              "name_vi": "Hệ quả chính sách: Tiếp tục cải cách và củng cố chính phủ dân sự",
+              "name_en": "Policy consequence: Continue reforms and strengthen civilian government",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.006,
+                "legitimacy": 0.4,
+                "research": 0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung quyền lực vào triều đình và cảnh sát",
+          "label_en": "Concentrate power in the court and police",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_stolypin_assassination_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung quyền lực vào triều đình và cảnh sát",
+              "name_en": "Policy consequence: Concentrate power in the court and police",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "radicalism": 0.008,
+                "reform": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_world_war_one",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1914-01-01",
+        "1915-12-31"
+      ],
+      "date_historical": "1914-08-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1914,
+            "to": 1915
+          }
+        ],
+        "fire_date": "1914-08-01"
+      },
+      "title_vi": "Nga bước vào Chiến tranh thế giới thứ nhất",
+      "title_en": "Russia Enters the First World War",
+      "text_vi": "Nga tham chiến chống Đức sau khủng hoảng tháng Bảy và quá trình tổng động viên. Chiến tranh đặt gánh nặng chưa từng có lên đường sắt, công nghiệp, ngân sách và nguồn cung lương thực, đồng thời làm gia tăng sức ép lên chế độ Nicholas II.",
+      "text_en": "Russia enters the war against Germany after the July Crisis and mobilisation. The conflict places unprecedented strain on railways, industry, public finances and food supplies, intensifying pressure on Nicholas II's regime.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên hậu cần, sản xuất và phối hợp đồng minh",
+          "label_en": "Prioritise logistics, production and allied coordination",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_world_war_one_historical",
+              "name_vi": "Hệ quả chính sách: Ưu tiên hậu cần, sản xuất và phối hợp đồng minh",
+              "name_en": "Policy consequence: Prioritise logistics, production and allied coordination",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "construction": 0.025,
+                "war_exhaustion": 0.18
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung vào chiến thắng quân sự bằng mọi giá",
+          "label_en": "Pursue military victory at any cost",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_world_war_one_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung vào chiến thắng quân sự bằng mọi giá",
+              "name_en": "Policy consequence: Pursue military victory at any cost",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.07,
+                "tax": 0.02,
+                "war_exhaustion": 0.22
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_nicholas_takes_command",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1915-01-01",
+        "1916-12-31"
+      ],
+      "date_historical": "1915-09-05",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1915,
+            "to": 1916
+          }
+        ],
+        "fire_date": "1915-09-05"
+      },
+      "title_vi": "Nicholas II trực tiếp nắm quyền tổng chỉ huy",
+      "title_en": "Nicholas II Assumes Supreme Command",
+      "text_vi": "Nicholas II quyết định trực tiếp đảm nhiệm chức tổng tư lệnh tối cao, gắn uy tín cá nhân của hoàng đế với kết quả chiến trường. Việc chuyển trọng tâm ra mặt trận khiến chính phủ ở thủ đô và hoàng hậu Alexandra chịu nhiều chỉ trích hơn khi khủng hoảng trong nước gia tăng.",
+      "text_en": "Nicholas II assumes personal command of the armed forces, tying the monarch's reputation directly to battlefield outcomes. His move to the front leaves the government in the capital and Empress Alexandra exposed to mounting criticism as domestic crisis deepens.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ chính phủ dân sự mạnh tại thủ đô",
+          "label_en": "Maintain a strong civilian government in the capital",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_nicholas_takes_command_historical",
+              "name_vi": "Hệ quả chính sách: Giữ chính phủ dân sự mạnh tại thủ đô",
+              "name_en": "Policy consequence: Maintain a strong civilian government in the capital",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "legitimacy": 0.4,
+                "war_exhaustion": 0.1
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Để triều đình can thiệp sâu vào điều hành thời chiến",
+          "label_en": "Allow the court to intervene deeply in wartime government",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_nicholas_takes_command_alternative",
+              "name_vi": "Hệ quả chính sách: Để triều đình can thiệp sâu vào điều hành thời chiến",
+              "name_en": "Policy consequence: Allow the court to intervene deeply in wartime government",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.7,
+                "radicalism": 0.01,
+                "war_exhaustion": 0.12
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_brusilov_offensive",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1916-01-01",
+        "1917-12-31"
+      ],
+      "date_historical": "1916-06-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1916,
+            "to": 1917
+          }
+        ],
+        "fire_date": "1916-06-04"
+      },
+      "title_vi": "Chiến dịch Brusilov tạo đột phá ở mặt trận phía đông",
+      "title_en": "The Brusilov Offensive",
+      "text_vi": "Quân Nga mở chiến dịch tiến công lớn chống Áo-Hung, đạt những thắng lợi ban đầu và gây tổn thất nặng cho đối phương. Tuy nhiên, thương vong và tiêu hao vật tư tiếp tục làm suy yếu khả năng duy trì chiến tranh của đế quốc.",
+      "text_en": "Russian forces launch a major offensive against Austria-Hungary, achieving early gains and inflicting heavy losses. Casualties and material consumption nevertheless weaken the empire's ability to sustain the war.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tận dụng thắng lợi nhưng củng cố dự bị và tiếp tế",
+          "label_en": "Exploit gains while reinforcing reserves and supply",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_brusilov_offensive_historical",
+              "name_vi": "Hệ quả chính sách: Tận dụng thắng lợi nhưng củng cố dự bị và tiếp tế",
+              "name_en": "Policy consequence: Exploit gains while reinforcing reserves and supply",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.045,
+                "prestige": 0.035,
+                "war_exhaustion": 0.12
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục tiến công bất chấp tổn thất",
+          "label_en": "Continue the offensive despite the losses",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_brusilov_offensive_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục tiến công bất chấp tổn thất",
+              "name_en": "Policy consequence: Continue the offensive despite the losses",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "war_exhaustion": 0.2,
+                "tax": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_rasputin_murder",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1916-01-01",
+        "1917-12-31"
+      ],
+      "date_historical": "1916-12-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1916,
+            "to": 1917
+          }
+        ],
+        "fire_date": "1916-12-30"
+      },
+      "title_vi": "Grigori Rasputin bị sát hại",
+      "title_en": "The Murder of Grigori Rasputin",
+      "text_vi": "Rasputin bị một nhóm quý tộc sát hại trong bối cảnh tin đồn về ảnh hưởng của ông đối với hoàng gia và chính phủ. Vụ việc không giải quyết được khủng hoảng chính trị mà còn cho thấy triều đình đã mất khả năng thuyết phục nhiều tầng lớp tinh hoa.",
+      "text_en": "Rasputin is murdered by a group of nobles amid rumours of his influence over the royal family and government. The killing does not resolve the political crisis and instead reveals how far the court has lost the confidence of elite groups.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tái lập lòng tin bằng cải tổ chính phủ",
+          "label_en": "Restore confidence through government reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_rasputin_murder_historical",
+              "name_vi": "Hệ quả chính sách: Tái lập lòng tin bằng cải tổ chính phủ",
+              "name_en": "Policy consequence: Restore confidence through government reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.5,
+                "reform": 0.004,
+                "radicalism": -0.002
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo vệ triều đình và hạn chế điều tra",
+          "label_en": "Protect the court and limit investigation",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_rasputin_murder_alternative",
+              "name_vi": "Hệ quả chính sách: Bảo vệ triều đình và hạn chế điều tra",
+              "name_en": "Policy consequence: Protect the court and limit investigation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.8,
+                "radicalism": 0.012,
+                "police": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_february_revolution",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1917-01-01",
+        "1918-12-31"
+      ],
+      "date_historical": "1917-03-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1917,
+            "to": 1918
+          }
+        ],
+        "fire_date": "1917-03-08"
+      },
+      "title_vi": "Cách mạng tháng Hai làm sụp đổ quyền lực tại Petrograd",
+      "title_en": "The February Revolution",
+      "text_vi": "Biểu tình vì bánh mì, đình công và binh sĩ đào ngũ biến Petrograd thành trung tâm nổi dậy. Khi các đơn vị đồn trú từ chối đàn áp và Duma lập Ủy ban lâm thời, quyền lực của hoàng gia tan rã chỉ trong vài ngày.",
+      "text_en": "Bread protests, strikes and soldier mutinies turn Petrograd into the centre of revolt. As garrison units refuse repression and the Duma forms a Provisional Committee, imperial authority collapses within days.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận chuyển giao quyền lực có trật tự",
+          "label_en": "Accept an orderly transfer of power",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_february_revolution_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận chuyển giao quyền lực có trật tự",
+              "name_en": "Policy consequence: Accept an orderly transfer of power",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": -0.5,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Cố gắng khôi phục trật tự bằng quân đội",
+          "label_en": "Attempt to restore order by force",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_february_revolution_alternative",
+              "name_vi": "Hệ quả chính sách: Cố gắng khôi phục trật tự bằng quân đội",
+              "name_en": "Policy consequence: Attempt to restore order by force",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "war_exhaustion": 0.18,
+                "legitimacy": -1.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ]
+    },
+    {
+      "id": "rus_nicholas_ii_abdication",
+      "country": "RUS",
+      "mode": "historical",
+      "window": [
+        "1917-01-01",
+        "1918-12-31"
+      ],
+      "date_historical": "1917-03-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1917,
+            "to": 1918
+          }
+        ],
+        "fire_date": "1917-03-15"
+      },
+      "title_vi": "Nicholas II thoái vị, chấm dứt triều đại Romanov",
+      "title_en": "Nicholas II Abdicates",
+      "text_vi": "Nicholas II ký văn kiện thoái vị khi quyền lực của hoàng gia không còn được quân đội và các trung tâm chính trị bảo đảm. Sự kiện chấm dứt hơn ba thế kỷ cai trị của nhà Romanov, mở ra thời kỳ chính phủ lâm thời và cạnh tranh quyền lực mới.",
+      "text_en": "Nicholas II signs the abdication as the monarchy can no longer rely on the army or political centres. The act ends more than three centuries of Romanov rule and opens a new period of provisional government and competing claims to power.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận chuyển tiếp và tránh nội chiến",
+          "label_en": "Accept the transition and avoid civil war",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_nicholas_ii_abdication_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận chuyển tiếp và tránh nội chiến",
+              "name_en": "Policy consequence: Accept the transition and avoid civil war",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "reform": 0.006,
+                "prestige": -0.05
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo vệ yêu sách hoàng gia bằng lực lượng trung thành",
+          "label_en": "Defend the imperial claim with loyal forces",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rus_nicholas_ii_abdication_alternative",
+              "name_vi": "Hệ quả chính sách: Bảo vệ yêu sách hoàng gia bằng lực lượng trung thành",
+              "name_en": "Policy consequence: Defend the imperial claim with loyal forces",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.016,
+                "war_exhaustion": 0.1,
+                "legitimacy": -1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc"
+      ],
+      "image": {
+        "ref": "ill_rus_nicholas_abdication",
+        "credit": "Library of Congress, Prints and Photographs Division, digital ID ggbain.25191",
+        "license": "Commons page identifies Library of Congress source; U.S. public-domain basis requires final verification"
+      }
+    }
+  ],
+  "journals": [
+    {
+      "id": "rus_nicholas_i_order_1837_1855",
+      "country": "RUS",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1837,
+            "to": 1837
+          }
+        ]
+      },
+      "title_vi": "Chuyên chế, kiểm duyệt và sức ép hiện đại hóa",
+      "title_en": "Autocracy, Censorship and the Pressure to Modernise",
+      "text_vi": "Dưới Nicholas I, nhà nước cố giữ ổn định bằng quyền lực tập trung, kiểm duyệt và trật tự xã hội. Những biến đổi về giao thông, công nghiệp và tư tưởng dần đặt mô hình này trước thử thách.",
+      "text_en": "Under Nicholas I, the state seeks stability through central authority, censorship and social order. Changes in transport, industry and ideas gradually test this model.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Khả năng thích nghi của nhà nước",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 360
+        }
+      ],
+      "timeout_months": 360,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "RUS",
+          "id": "rus_nicholas_i_order_complete",
+          "name_vi": "Bộ máy hành chính được củng cố",
+          "name_en": "Consolidated Administration",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 0.6,
+            "research": 0.005
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "RUS",
+          "id": "rus_nicholas_i_order_failed",
+          "name_vi": "Căng thẳng xã hội tích tụ",
+          "name_en": "Accumulated Social Tension",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.01,
+            "legitimacy": -0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "rus_great_reforms_1855_1881",
+      "country": "RUS",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1855,
+            "to": 1855
+          }
+        ]
+      },
+      "title_vi": "Đại cải cách và xã hội hậu nông nô",
+      "title_en": "The Great Reforms and Post-Serf Society",
+      "text_vi": "Giải phóng nông nô, cải cách tư pháp, zemstvo và nghĩa vụ quân sự làm thay đổi nền tảng nhà nước Nga. Thành công đòi hỏi chuyển đổi quyền sở hữu, năng lực hành chính và cơ hội giáo dục mà không tạo ra khủng hoảng mới.",
+      "text_en": "Emancipation, judicial reform, zemstvos and military reform reshape the foundations of the Russian state. Success requires changes in property, administration and education without creating a new crisis.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến trình cải cách",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 360
+        }
+      ],
+      "timeout_months": 360,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "RUS",
+          "id": "rus_great_reforms_complete",
+          "name_vi": "Năng lực cải cách được tích lũy",
+          "name_en": "Accumulated Reform Capacity",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "reform": 0.008,
+            "literacy": 0.006
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "RUS",
+          "id": "rus_great_reforms_failed",
+          "name_vi": "Cải cách dang dở",
+          "name_en": "Incomplete Reform",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.01,
+            "legitimacy": -0.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "rus_imperial_expansion_1870_1890",
+      "country": "RUS",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1870,
+            "to": 1870
+          }
+        ]
+      },
+      "title_vi": "Đế quốc đa dân tộc và biên giới mở rộng",
+      "title_en": "A Multiethnic Empire and Expanding Frontiers",
+      "text_vi": "Nga mở rộng ảnh hưởng từ Balkan tới Trung Á và Viễn Đông, đồng thời quản trị các cộng đồng có ngôn ngữ, tôn giáo và truyền thống khác nhau. An ninh biên giới phải đi cùng hạ tầng, thỏa hiệp địa phương và nguồn thu bền vững.",
+      "text_en": "Russia expands its influence from the Balkans to Central Asia and the Far East while governing communities with different languages, religions and traditions. Frontier security must be matched by infrastructure, local accommodation and sustainable revenue.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Năng lực quản trị đế quốc",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 360
+        }
+      ],
+      "timeout_months": 360,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "RUS",
+          "id": "rus_imperial_expansion_complete",
+          "name_vi": "Quản trị vùng biên được củng cố",
+          "name_en": "Strengthened Frontier Administration",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "construction": 0.025,
+            "legitimacy": 0.4
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "RUS",
+          "id": "rus_imperial_expansion_failed",
+          "name_vi": "Gánh nặng biên giới gia tăng",
+          "name_en": "Rising Frontier Burden",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "tax": -0.01,
+            "radicalism": 0.008
+          }
+        }
+      ]
+    },
+    {
+      "id": "rus_industrial_society_1891_1904",
+      "country": "RUS",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1891,
+            "to": 1891
+          }
+        ]
+      },
+      "title_vi": "Công nghiệp hóa, đường sắt và bất bình đẳng",
+      "title_en": "Industrialisation, Railways and Inequality",
+      "text_vi": "Đường sắt xuyên Siberia, công nghiệp nặng và đô thị hóa làm thay đổi nền kinh tế Nga. Tăng trưởng nhanh tạo thêm nguồn lực nhưng cũng tập trung lao động, bất bình đẳng và rủi ro xã hội tại các thành phố.",
+      "text_en": "The Trans-Siberian Railway, heavy industry and urbanisation transform the Russian economy. Rapid growth creates resources but also concentrates labour, inequality and social risk in the cities.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Chuyển đổi kinh tế",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 360
+        }
+      ],
+      "timeout_months": 360,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "RUS",
+          "id": "rus_industrial_society_complete",
+          "name_vi": "Nền tảng công nghiệp được mở rộng",
+          "name_en": "Expanded Industrial Base",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "construction": 0.03,
+            "research": 0.008
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "RUS",
+          "id": "rus_industrial_society_failed",
+          "name_vi": "Phân hóa xã hội tăng cao",
+          "name_en": "Heightened Social Division",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.012,
+            "legitimacy": -0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "rus_constitutional_crisis_1905_1917",
+      "country": "RUS",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "RUS"
+          },
+          {
+            "type": "year_between",
+            "from": 1905,
+            "to": 1905
+          }
+        ]
+      },
+      "title_vi": "Khủng hoảng hiến chính và chiến tranh tổng lực",
+      "title_en": "Constitutional Crisis and Total War",
+      "text_vi": "Cách mạng 1905 mở ra Duma nhưng quyền lực nghị viện bị giới hạn, trong khi chiến tranh thế giới làm suy yếu nền kinh tế và lòng tin vào triều đình. Khả năng tồn tại của chế độ phụ thuộc vào cải cách chính trị, hậu cần và sự ủng hộ của quân đội.",
+      "text_en": "The 1905 Revolution opens the Duma, but parliamentary power remains limited as world war weakens the economy and confidence in the court. The regime's survival depends on political reform, logistics and the loyalty of the armed forces.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Khả năng duy trì chính danh",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 360
+        }
+      ],
+      "timeout_months": 360,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "RUS",
+          "id": "rus_constitutional_crisis_complete",
+          "name_vi": "Thể chế thích nghi với khủng hoảng",
+          "name_en": "Institutions Adapt to Crisis",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 0.8,
+            "reform": 0.008
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "RUS",
+          "id": "rus_constitutional_crisis_failed",
+          "name_vi": "Khủng hoảng chế độ",
+          "name_en": "Regime Crisis",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.015,
+            "legitimacy": -1
+          }
+        }
+      ]
+    }
+  ]
+}
