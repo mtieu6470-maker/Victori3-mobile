@@ -63,8 +63,7 @@
               "months": 36,
               "decaying": true,
               "effects": {
-                "prestige": 0.03,
-                "relation": 0.02
+                "prestige": 0.05
               }
             }
           ]
@@ -2023,7 +2022,7 @@
               "decaying": true,
               "effects": {
                 "legitimacy": 0.2,
-                "relation": -0.02
+                "prestige": -0.02
               }
             }
           ]
