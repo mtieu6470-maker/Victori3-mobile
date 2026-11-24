@@ -2759,3 +2759,13 @@ Detailed report: `docs/research/history/CG61_JAP_STORY_EVENT_BATCH_CHECKPOINT_20
 - Static read-back: 54 unique RUS IDs; two options/event; named timed modifiers; all source keys resolve; fire_date matches date_historical; modifier keys match MOD_KEYS; five time-based journals; three image subjects map to events.
 - **Integration blockers:** verify Julian/Gregorian convention, monthly scheduler and next-year windows; final abdication event date equals registry hist_to 1917-03-15; verify journal cleanup on entity retirement; recheck Commons rights and create a manageable derivative for the 124 MB Duma original. No builders, tests, simulation, Android build or APK run.
 - **Next ChatGPT A1 country:** PRU (Prussia, not PRS/Persia) → USA → TUR. MSG-129 remains IN_PROGRESS.
+
+
+## 2026-11-24 — CG-65 PRU (Phổ) A1 story pack delivered
+
+- `historical_data/events/story/PRU.json`: 60 events, 5 journals, 120 choices and 120 timed modifiers; 12 source dictionary entries and 71 event-level refs.
+- Six Commons image candidates added to `story_selection.json`; six event image refs resolve to those candidates. No binary assets ingested.
+- Static audit passed: JSON, unique event/journal IDs, PRU registry membership, modifier keys against actual `MOD_KEYS`, source refs and image candidate refs.
+- Review caveats: monthly scheduler limits one event per country per month; two pairs share a month (March 1848 and September 1862); final event 1918-11-09 coincides with `PRU.hist_to`; source claims and media rights still require independent verification. No builders/tests/simulation/Android/APK/device QA run.
+- Checkpoint: `docs/research/history/CG65_PRU_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
+- **Next ChatGPT A1 country: USA**, then TUR. MSG-129 remains IN_PROGRESS.
