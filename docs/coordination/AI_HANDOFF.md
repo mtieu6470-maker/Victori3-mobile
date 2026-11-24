@@ -2781,3 +2781,11 @@ Detailed report: `docs/research/history/CG61_JAP_STORY_EVENT_BATCH_CHECKPOINT_20
 - Aggregate audit: `docs/research/history/CG68_A1_SEVEN_COUNTRY_COMPLETION_AUDIT_2026-11-24_VI.md`.
 - USA checkpoint CG-66; TUR checkpoint CG-67. JAP CG-61 report updated with six later image candidates; PRU CG-65 report updated with final asset-ID convention.
 - **Next owner/Claude action:** integrate and review all seven packs, fix journal one-shot semantics, validate monthly scheduling, run builders/tests/simulation, ingest only rights-cleared media, build and QA APK. A1 authoring is complete; MSG-129 remains open for integration acceptance and A2–A8.
+
+
+## 2026-11-24 — A1 integration PR opened
+
+- Draft PR #2: https://github.com/mtieu6470-maker/Victori3-mobile/pull/2
+- Head: `ccr-b27f3fb8-epfpd6` (`34544bb7d55a73d43328dd05dbaa1b9dd074d03d`); base: `claude/game-historical-sandbox-modes-kg7rj7` (`8d38bd888c3e3d320aed00f59db0d8cf75bc9a4d`).
+- GitHub currently reports `mergeable=false`; compare status is `diverged` (head 34 ahead / 7 behind). PR remains draft and **was not merged**. Reconcile documentation updates on both branches before merge; do not force-push or discard Claude's target-branch updates.
+- PR contains remaining A1 data (PRU/USA/TUR), JAP image follow-up, selection fixes and CG-65–CG-68 handoff reports. A1 is authoring-complete but not accepted by runtime/build.
