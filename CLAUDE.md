@@ -52,3 +52,7 @@ Claude does not need routine approval for engineering decisions. Explicit owner 
 ## Session recovery
 
 For every new session or lost/stalled chat response, read docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md. Verify GitHub HEAD, handoff, changed files and workflows before resuming or retrying. Never duplicate an ambiguous write or claim uncommitted work was saved.
+
+## Chọn mô hình (owner 2026-11-25)
+
+Mặc định dùng Sonnet; chỉ dùng Opus cho việc khó. Khi gặp việc khó, dừng và hỏi owner đổi sang Opus trước khi làm. Chi tiết và danh sách việc nào cần Opus: docs/coordination/MODEL_USAGE_POLICY_VI.md. Việc còn lại theo từng AI: docs/roadmap/OPEN_WORK_FOR_CHATGPT_2026-11-24_VI.md và docs/roadmap/NEXT_PHASE_PLAN_2026-11-24_VI.md.
