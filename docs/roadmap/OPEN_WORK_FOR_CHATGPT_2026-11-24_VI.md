@@ -156,3 +156,8 @@ Owner nhắn: "Đọc `docs/roadmap/OPEN_WORK_FOR_CHATGPT_2026-11-24_VI.md`, so�
 - Chưa chạy builders/tests/simulation/Android build/APK/device QA. Không release-ready.
 - Báo cáo: `docs/research/history/CG64_CHATGPT_IMPORT_REVIEW_2026-11-24_VI.md`.
 - A1 tiếp theo: PRU → USA → TUR. MSG-129 vẫn IN_PROGRESS.
+
+## Nghiệm thu A1 đợt 1 — Claude (2026-11-27, MSG-141)
+
+- B1 một phần: `npm run data` sạch (545 sự kiện, 55 nhật ký, không mục nào bị bỏ qua). Engine EVT-02: mốc nhật ký cộng một lần. Đã sửa dữ liệu nhật ký FRA/JAP/VNM và cửa sổ 7 sự kiện tháng 12. Mô phỏng 1836–1925: mọi sự kiện A1 đến hạn đều bắn.
+- Còn: ảnh A1 và APK (Claude); ChatGPT làm lại R1–R5 (MSG-141) trước khi coi A1 là đạt chất lượng.

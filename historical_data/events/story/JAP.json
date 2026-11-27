@@ -2571,7 +2571,7 @@
       "mode": "historical",
       "window": [
         "1941-01-01",
-        "1941-12-31"
+        "1942-03-28"
       ],
       "date_historical": "1941-12-08",
       "trigger": {
@@ -2583,7 +2583,7 @@
           {
             "type": "year_between",
             "from": 1941,
-            "to": 1941
+            "to": 1942
           }
         ],
         "fire_date": "1941-12-08"
@@ -4238,6 +4238,11 @@
           {
             "type": "exists",
             "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1836,
+            "to": 1836
           }
         ]
       },
@@ -4282,9 +4287,6 @@
               "id": "jap_harris_treaty"
             },
             "add": 20
-          },
-          {
-            "add": -1
           }
         ]
       },
@@ -4344,6 +4346,11 @@
           {
             "type": "exists",
             "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1867,
+            "to": 1868
           }
         ]
       },
@@ -4388,9 +4395,6 @@
               "id": "jap_meiji_constitution"
             },
             "add": 20
-          },
-          {
-            "add": -1
           }
         ]
       },
@@ -4450,6 +4454,11 @@
           {
             "type": "exists",
             "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1894,
+            "to": 1894
           }
         ]
       },
@@ -4494,9 +4503,6 @@
               "id": "jap_korea_annexation"
             },
             "add": 20
-          },
-          {
-            "add": -1
           }
         ]
       },
@@ -4556,6 +4562,11 @@
           {
             "type": "exists",
             "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1931,
+            "to": 1931
           }
         ]
       },
@@ -4600,9 +4611,6 @@
               "id": "jap_surrender"
             },
             "add": 20
-          },
-          {
-            "add": -1
           }
         ]
       },
@@ -4662,6 +4670,11 @@
           {
             "type": "exists",
             "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1945,
+            "to": 1947
           }
         ]
       },
@@ -4706,9 +4719,6 @@
               "id": "jap_shinkansen"
             },
             "add": 20
-          },
-          {
-            "add": -1
           }
         ]
       },
@@ -4768,6 +4778,11 @@
           {
             "type": "exists",
             "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1989,
+            "to": 1990
           }
         ]
       },
@@ -4812,9 +4827,6 @@
               "id": "jap_noto_earthquake"
             },
             "add": 20
-          },
-          {
-            "add": -1
           }
         ]
       },

@@ -1,3 +1,23 @@
+## 2026-11-27 — EVT-02 one-shot journal milestones; A1 packs integrated and simulated (MSG-141)
+
+- **Branches:** game branch docs (CG-64, MSG-134) merged into `ccr-b27f3fb8-epfpd6` (docs only, both sides kept; no force-push).
+- **Engine** (`systems/storyEvents.ts`):
+  - A journal progress step is one-shot when it has `once: true`, or by default when its `if` is `event_fired`. `once: false` keeps repeating. Awarded keys: optional `StoryJournalState.awarded` (`step.id`, else the condition JSON). Validated in `stateContract.ts`.
+  - Older saves (no `awarded`) still load. A latched milestone is counted once more after loading.
+- **Data fixes** (one-off scripts, rules in the spec):
+  - FRA/JAP/VNM milestone journals: removed the unconditional `-1`/month decay, which made 100 unreachable.
+  - VNM milestones rescaled to sum to 100.
+  - JAP era journals given `year_between` triggers (all six used to open in 1836).
+  - 7 December-dated events (FRA ×6, `jap_pearl_harbor`) never fired because their window closed on 31 December and the dispatch is on 1 January. Windows now run 2 months past the date.
+- **Spec:** `docs/spec/STORY_EVENTS_SCHEMA_VI.md`, Story journals: progress steps, exact dates on the monthly clock.
+- **Tests:** `tests/story-journals-once.test.ts` (7, including a pack-wide scheduler/window check and a reachability check, plus Historical France 1848–1852, about 30 s).
+- **Simulation** (Historical seed 1, 1836–1925): every due A1 event fired, at most 2 months late. The final QNG/RUS/PRU/TUR events fire, because entities are renamed by `regime_changes`, not removed at `hist_to`.
+- **Open:**
+  - ChatGPT rework R1–R5 (MSG-141): timer-only journals, Vietnamese text in JAP English fields, VNM journal semantics, coverage gaps.
+  - Claude: A1 image ingest, `npm run content`, APK; 5 GBR events that never fire in the simulation; Vietnamese `name_en` in `generic_politics.json`.
+
+---
+
 ## 2026-11-24 — Owner: three speed steps (3/6/12 h/s, max 12); small per-month values formatted
 
 - `FIXED_RATES_HPS` = [3, 6, 12] (owner 2026-11-24). Saved 1/2 h/s preferences clamp to 3; 24/48 clamp to 12. AUTO stays (12 → 6 under sustained load).

@@ -146,6 +146,12 @@ In the same file, put `"journals": [ … ]`:
   "on_complete": [ effects ], "on_fail": [ effects ] }
 ```
 
+- **Progress steps (EVT-02, 2026-11-27):**
+  - A step runs every month while its `if` holds ("rate" steps: e.g. `+2` while at war, `-1` always).
+  - A step is a **one-shot milestone** if it has `"once": true`, and by default when its `if` is `event_fired` (that condition stays true forever, so it must not add points every month). `"once": false` forces a repeating step. An optional `"id"` names the milestone.
+  - Milestone journals: the milestones must add up to the `progress_at_least` threshold, and must not be paired with an unconditional decay (`{ "add": -1 }`), which makes the threshold unreachable. Give era journals a `year_between` trigger, and a timeout that outlasts the last milestone.
+  - Better than pure milestones or pure timers: mix milestones with rate steps that depend on the player's situation (laws, wars, radicalism, legitimacy), so the journal reflects how the country is doing, not only the calendar.
+- **Exact dates and the monthly clock:** an event with `fire_date` is dispatched on the first monthly tick (the 1st) on or after that date, and a country gets at most one story event per month. Keep `window` and any `year_between` open for at least two months after `fire_date`; a December date needs the window to run into the next year. `tests/story-journals-once.test.ts` checks this for every pack.
 - A journal opens by its `trigger`, or by a `start_journal` effect.
 - Use `trigger_event` in `on_complete` / `on_fail` for outcome events.
 - **Interest-group petitions** are a journal with a deadline: "Expect law X within 5 years" → kept: approval buff; broken: debuff.

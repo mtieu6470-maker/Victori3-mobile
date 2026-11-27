@@ -4187,17 +4187,14 @@
               "type": "event_fired",
               "id": "vnm_minh_mang_centralisation_1836"
             },
-            "add": 15
+            "add": 50
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_coastal_defence_reform_1850"
             },
-            "add": 15
-          },
-          {
-            "add": -1
+            "add": 50
           }
         ]
       },
@@ -4276,31 +4273,28 @@
               "type": "event_fired",
               "id": "vnm_french_naval_incident_1847"
             },
-            "add": 10
+            "add": 20
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_tourane_invasion_1858"
             },
-            "add": 15
+            "add": 30
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_treaty_saigon_1862"
             },
-            "add": 10
+            "add": 20
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_harmand_hue_1883"
             },
-            "add": 15
-          },
-          {
-            "add": -1
+            "add": 30
           }
         ]
       },
@@ -4378,24 +4372,21 @@
               "type": "event_fired",
               "id": "vnm_can_vuong_1885"
             },
-            "add": 20
+            "add": 40
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_ba_dinh_resistance_1886"
             },
-            "add": 10
+            "add": 20
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_huong_khe_resistance_1896"
             },
-            "add": 20
-          },
-          {
-            "add": -2
+            "add": 40
           }
         ]
       },
@@ -4473,31 +4464,28 @@
               "type": "event_fired",
               "id": "vnm_duy_tan_reform_1904"
             },
-            "add": 15
+            "add": 28
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_dong_du_1905"
             },
-            "add": 15
+            "add": 27
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_dong_kinh_nghia_thuc_1907"
             },
-            "add": 15
+            "add": 27
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_tax_protests_1908"
             },
-            "add": 10
-          },
-          {
-            "add": -1
+            "add": 18
           }
         ]
       },
@@ -4575,31 +4563,28 @@
               "type": "event_fired",
               "id": "vnm_phan_boi_chau_trial_1925"
             },
-            "add": 10
+            "add": 18
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_vnqdd_formation_1927"
             },
-            "add": 15
+            "add": 28
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_icp_formation_1930"
             },
-            "add": 15
+            "add": 27
           },
           {
             "if": {
               "type": "event_fired",
               "id": "vnm_nghe_tinh_soviets_1930"
             },
-            "add": 15
-          },
-          {
-            "add": -1
+            "add": 27
           }
         ]
       },

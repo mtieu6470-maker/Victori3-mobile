@@ -258,7 +258,7 @@ export function validateNestedState(st: GameState): void {
   }
   for (const f of ['storyFired', 'flags'] as const) if (s[f] !== undefined) arr(s[f], f).forEach((x, i) => str(x, `${f}[${i}]`));
   if (s.pendingStory !== undefined) arr(s.pendingStory, 'pendingStory').forEach((p, i) => { const x = obj(p, `pendingStory[${i}]`); for (const f of ['id', 'event', 'country'] as const) str(x[f], `pendingStory[${i}].${f}`); num(x.firedAt, `pendingStory[${i}].firedAt`); num(x.expires, `pendingStory[${i}].expires`); });
-  if (s.storyJournals !== undefined) arr(s.storyJournals, 'storyJournals').forEach((p, i) => { const x = obj(p, `storyJournals[${i}]`); str(x.id, `storyJournals[${i}].id`); str(x.country, `storyJournals[${i}].country`); num(x.started, `storyJournals[${i}].started`); num(x.progress, `storyJournals[${i}].progress`); });
+  if (s.storyJournals !== undefined) arr(s.storyJournals, 'storyJournals').forEach((p, i) => { const x = obj(p, `storyJournals[${i}]`); str(x.id, `storyJournals[${i}].id`); str(x.country, `storyJournals[${i}].country`); num(x.started, `storyJournals[${i}].started`); num(x.progress, `storyJournals[${i}].progress`); if (x.awarded !== undefined) arr(x.awarded, `storyJournals[${i}].awarded`).forEach((a, k) => str(a, `storyJournals[${i}].awarded[${k}]`)); });
   if (s.embargoes !== undefined) arr(s.embargoes, 'embargoes').forEach((e, i) => { const x = obj(e, `embargoes[${i}]`); str(x.by, `embargoes[${i}].by`); str(x.target, `embargoes[${i}].target`); num(x.since, `embargoes[${i}].since`); });
   if (s.powerBlocs !== undefined) for (const [k, v] of Object.entries(obj(s.powerBlocs, 'powerBlocs'))) {
     const b = obj(v, `powerBlocs.${k}`);

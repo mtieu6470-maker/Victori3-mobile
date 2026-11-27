@@ -26,7 +26,11 @@ export const STORY = { historicalWeight: 4, playerMonths: 12, maxPerCountryPerMo
 /** A timed modifier from an event (V3-style buff/debuff): `effects` are keys of mods.MOD_KEYS. */
 export interface Modifier { id: string; name_vi: string; name_en?: string; start: number; until: number; decaying?: boolean; effects: Record<string, number>; source?: string }
 /** A running story journal (V3-style journal entry with progress and complete/fail conditions). */
-export interface StoryJournalState { id: string; country: string; started: number; progress: number; bindings: Record<string, string | string[]> }
+export interface StoryJournalState {
+  id: string; country: string; started: number; progress: number; bindings: Record<string, string | string[]>;
+  /** Keys of one-shot progress steps already awarded (EVT-02; absent in saves before it, = none awarded). */
+  awarded?: string[];
+}
 export interface PendingStory { id: string; event: string; country: string; bindings: Record<string, string | string[]>; firedAt: number; expires: number }
 type Bindings = Record<string, string | string[]>;
 
@@ -276,6 +280,16 @@ export function startJournal(st: GameState, id: string, b: Bindings): void {
   (st.storyJournals ??= []).push({ id, country, started: st.tick, progress: def.progress?.start ?? 0, bindings: { ...b, self: country } });
   log(st, { type: 'decision', text: `New journal entry: ${def.title_en ?? def.title_vi}.`, textVi: `Mục nhật ký mới: ${def.title_vi}.`, actors: [country] });
 }
+type ProgressStep = NonNullable<NonNullable<StoryJournal['progress']>['monthly']>[number];
+/**
+ * EVT-02 (CG-64): a progress step is a one-shot milestone when it says `once: true`, or by default when its
+ * condition is `event_fired` — a latch that stays true forever, so re-adding it every month would complete the
+ * journal by repetition rather than by the milestones. `once: false` keeps the old repeating behaviour.
+ */
+export const isOnceStep = (s: ProgressStep): boolean => s.once ?? (s.if as { type?: string } | undefined)?.type === 'event_fired';
+/** Stable key of a one-shot step: its id, else its condition (survives reordering of steps between versions). */
+export const onceStepKey = (s: ProgressStep, i: number): string => s.id ?? (s.if ? JSON.stringify(s.if) : `#${i}`);
+
 function journalsMonth(st: GameState): void {
   // auto-start journals whose trigger holds
   for (const def of journals()) {
@@ -291,7 +305,13 @@ function journalsMonth(st: GameState): void {
   for (const j of [...(st.storyJournals ?? [])]) {
     const def = journalDef(j.id); const c = st.countries[j.country];
     if (!def || !c?.alive) { st.storyJournals = st.storyJournals!.filter((x) => x !== j); continue; }
-    for (const step of def.progress?.monthly ?? []) if (!step.if || storyCondition(st, bind(step.if, j.bindings))) j.progress = clamp(j.progress + step.add, 0, def.progress?.max ?? 100);
+    (def.progress?.monthly ?? []).forEach((step, i) => {
+      const k = isOnceStep(step) ? onceStepKey(step, i) : undefined;
+      if (k !== undefined && j.awarded?.includes(k)) return;
+      if (step.if && !storyCondition(st, bind(step.if, j.bindings))) return;
+      j.progress = clamp(j.progress + step.add, 0, def.progress?.max ?? 100);
+      if (k !== undefined) (j.awarded ??= []).push(k);
+    });
     const { complete, fail } = journalChecks(st, j);
     const timedOut = def.timeout_months !== undefined && st.tick - j.started >= def.timeout_months;
     const done = (complete.length > 0 && complete.every(Boolean)) || (timedOut && def.on_timeout === 'complete');

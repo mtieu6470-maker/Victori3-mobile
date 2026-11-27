@@ -177,7 +177,7 @@ export interface StoryJournal {
   id: string; country: string; mode: 'historical' | 'both' | 'sandbox'; window?: [string, string];
   title_vi: string; title_en?: string; text_vi: string; text_en?: string; image?: { ref: string; credit?: string; license?: string };
   trigger?: { conditions?: Record<string, unknown>[] };
-  progress?: { start?: number; max?: number; label_vi?: string; monthly?: { if?: Record<string, unknown>; add: number }[] };
+  progress?: { start?: number; max?: number; label_vi?: string; monthly?: { if?: Record<string, unknown>; add: number; once?: boolean; id?: string }[] };
   complete?: Record<string, unknown>[]; fail?: Record<string, unknown>[];
   timeout_months?: number; on_timeout?: 'complete' | 'fail';
   on_complete?: Record<string, unknown>[]; on_fail?: Record<string, unknown>[];

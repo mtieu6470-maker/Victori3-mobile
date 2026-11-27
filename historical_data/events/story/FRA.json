@@ -390,7 +390,7 @@
       "mode": "historical",
       "window": [
         "1848-01-01",
-        "1848-12-31"
+        "1849-03-28"
       ],
       "date_historical": "1848-12-10",
       "trigger": {
@@ -402,7 +402,7 @@
           {
             "type": "year_between",
             "from": 1848,
-            "to": 1848
+            "to": 1849
           }
         ],
         "fire_date": "1848-12-10"
@@ -560,7 +560,7 @@
       "mode": "historical",
       "window": [
         "1851-01-01",
-        "1851-12-31"
+        "1852-03-28"
       ],
       "date_historical": "1851-12-02",
       "trigger": {
@@ -572,7 +572,7 @@
           {
             "type": "year_between",
             "from": 1851,
-            "to": 1851
+            "to": 1852
           }
         ],
         "fire_date": "1851-12-02"
@@ -650,7 +650,7 @@
       "mode": "historical",
       "window": [
         "1852-01-01",
-        "1852-12-31"
+        "1853-03-28"
       ],
       "date_historical": "1852-12-02",
       "trigger": {
@@ -662,7 +662,7 @@
           {
             "type": "year_between",
             "from": 1852,
-            "to": 1852
+            "to": 1853
           }
         ],
         "fire_date": "1852-12-02"
@@ -2133,7 +2133,7 @@
       "mode": "historical",
       "window": [
         "1894-01-01",
-        "1894-12-31"
+        "1895-03-28"
       ],
       "date_historical": "1894-12-22",
       "trigger": {
@@ -2145,7 +2145,7 @@
           {
             "type": "year_between",
             "from": 1894,
-            "to": 1894
+            "to": 1895
           }
         ],
         "fire_date": "1894-12-22"
@@ -2302,7 +2302,7 @@
       "mode": "historical",
       "window": [
         "1905-01-01",
-        "1905-12-31"
+        "1906-03-28"
       ],
       "date_historical": "1905-12-09",
       "trigger": {
@@ -2314,7 +2314,7 @@
           {
             "type": "year_between",
             "from": 1905,
-            "to": 1905
+            "to": 1906
           }
         ],
         "fire_date": "1905-12-09"
@@ -3796,7 +3796,7 @@
       "mode": "historical",
       "window": [
         "1965-01-01",
-        "1965-12-31"
+        "1966-03-28"
       ],
       "date_historical": "1965-12-05",
       "trigger": {
@@ -3808,7 +3808,7 @@
           {
             "type": "year_between",
             "from": 1965,
-            "to": 1965
+            "to": 1966
           }
         ],
         "fire_date": "1965-12-05"
@@ -4969,9 +4969,6 @@
               "id": "fra_coup_1851"
             },
             "add": 30
-          },
-          {
-            "add": -1
           }
         ]
       },
@@ -5101,9 +5098,6 @@
               "id": "fra_franco_prussian_war_1870"
             },
             "add": 15
-          },
-          {
-            "add": -1
           }
         ]
       },
@@ -5254,9 +5248,6 @@
               "id": "fra_separation_1905"
             },
             "add": 10
-          },
-          {
-            "add": -1
           }
         ]
       },
@@ -5421,9 +5412,6 @@
               "id": "fra_fourth_republic_1946"
             },
             "add": 10
-          },
-          {
-            "add": -1
           }
         ]
       },
@@ -5560,9 +5548,6 @@
               "id": "fra_death_penalty_1981"
             },
             "add": 5
-          },
-          {
-            "add": -1
           }
         ]
       },
@@ -5692,9 +5677,6 @@
               "id": "fra_paris_olympics_2024"
             },
             "add": 10
-          },
-          {
-            "add": -1
           }
         ]
       },
