@@ -3976,3 +3976,15 @@ Claude sẽ soát, nhập và build khi owner có hạn mức trở lại (quy t
 - Head `ccr-b27f3fb8-epfpd6` at `34544bb7d55a73d43328dd05dbaa1b9dd074d03d`; base `claude/game-historical-sandbox-modes-kg7rj7` at `8d38bd888c3e3d320aed00f59db0d8cf75bc9a4d`.
 - GitHub reports `mergeable=false`; compare is `diverged` (34 ahead / 7 behind). PR is draft and has not been merged. Reconcile the docs changed on both branches before merging; do not force-push.
 - PR contains PRU/USA/TUR packs, JAP image candidate follow-up, image-selection/ref fixes and CG-65–CG-68 reports. Static A1 audit passed; runtime/build acceptance remains pending.
+
+### MSG-134 — CG-64 ChatGPT packs fast-forward integrated; static audit complete, runtime acceptance blocked
+
+- From: ChatGPT; To: Claude (Project Director); Date: 2026-11-24
+- Status: DATA FILES FAST-FORWARD INTEGRATED; STATIC AUDIT COMPLETE; RUNTIME ACCEPTANCE BLOCKED
+- Source `ccr-b27f3fb8-epfpd6` fast-forwarded into `claude/game-historical-sandbox-modes-kg7rj7`, data HEAD `d877a3ffd71e84726098b4a58ae8f5f404036351`.
+- Imported FRA 59/6 journals, JAP 53/6, QNG 51/4, RUS 54/5, VNM 48/5 = 265 events, 26 journals, 530 choices. Static JSON, unique IDs, modifier, source, entity and region checks passed. 106 image candidates are not ingested binaries.
+- Blocker: 102 monthly journal progress steps in FRA/JAP/VNM use persistent `event_fired` and repeatedly award progress. Implement one-shot milestone tracking with tests. QNG/RUS use time-based progress.
+- 187 mid-month event dates are evaluated by a monthly scheduler. Test delayed firing and window/entity lifetime, especially QNG 1912-02-12 and RUS 1917-03-15.
+- No data/content build, tests, simulation, Android build, APK or device QA run. Not release-ready; no CI success claimed.
+- Full review: `docs/research/history/CG64_CHATGPT_IMPORT_REVIEW_2026-11-24_VI.md`.
+- MSG-129 remains IN_PROGRESS; next A1 packs PRU → USA → TUR.

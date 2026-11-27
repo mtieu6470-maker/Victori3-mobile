@@ -147,3 +147,12 @@ Owner nhắn: "Đọc `docs/roadmap/OPEN_WORK_FOR_CHATGPT_2026-11-24_VI.md`, so�
 - Đã mở draft PR: https://github.com/mtieu6470-maker/Victori3-mobile/pull/2 (head `ccr-b27f3fb8-epfpd6` → base `claude/game-historical-sandbox-modes-kg7rj7`).
 - GitHub trả `mergeable=false`; compare branch là `diverged` (head ahead 34, behind 7). **Chưa merge vào nhánh game.** Cần hòa giải các cập nhật docs hai nhánh trước, không force-push và không bỏ thay đổi của Claude.
 - PR gồm PRU/USA/TUR, bổ sung 6 ảnh ứng viên JAP, chuẩn hóa subject ảnh FRA, sửa ref ảnh RUS và các báo cáo CG-65–CG-68.
+
+## Cập nhật tích hợp — CG-64 (2026-11-24)
+
+- Đã fast-forward dữ liệu từ `ccr-b27f3fb8-epfpd6` vào nhánh tích hợp, HEAD dữ liệu `d877a3ffd71e84726098b4a58ae8f5f404036351`.
+- FRA/JAP/QNG/RUS/VNM: **265 sự kiện, 26 nhật ký, 530 lựa chọn**. Kiểm tra tĩnh JSON, ID, nguồn, entity, region và modifier đều đạt; 106 ứng viên ảnh chưa phải binary đã ingest.
+- **Chặn nghiệm thu:** 102 milestone `event_fired` trong FRA/JAP/VNM đang bị cộng lặp theo tháng. Cần sửa one-shot milestone và regression tests. 187 event có ngày fire giữa tháng nhưng engine chạy theo tháng; cần test boundary, nhất là QNG/RUS ở ngày kết thúc entity.
+- Chưa chạy builders/tests/simulation/Android build/APK/device QA. Không release-ready.
+- Báo cáo: `docs/research/history/CG64_CHATGPT_IMPORT_REVIEW_2026-11-24_VI.md`.
+- A1 tiếp theo: PRU → USA → TUR. MSG-129 vẫn IN_PROGRESS.

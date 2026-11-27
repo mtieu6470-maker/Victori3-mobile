@@ -2789,3 +2789,13 @@ Detailed report: `docs/research/history/CG61_JAP_STORY_EVENT_BATCH_CHECKPOINT_20
 - Head: `ccr-b27f3fb8-epfpd6` (`34544bb7d55a73d43328dd05dbaa1b9dd074d03d`); base: `claude/game-historical-sandbox-modes-kg7rj7` (`8d38bd888c3e3d320aed00f59db0d8cf75bc9a4d`).
 - GitHub currently reports `mergeable=false`; compare status is `diverged` (head 34 ahead / 7 behind). PR remains draft and **was not merged**. Reconcile documentation updates on both branches before merge; do not force-push or discard Claude's target-branch updates.
 - PR contains remaining A1 data (PRU/USA/TUR), JAP image follow-up, selection fixes and CG-65–CG-68 handoff reports. A1 is authoring-complete but not accepted by runtime/build.
+
+## 2026-11-24 — CG-64 ChatGPT story data import review
+
+- Source branch `ccr-b27f3fb8-epfpd6` fast-forwarded to integration branch; integrated HEAD `d877a3ffd71e84726098b4a58ae8f5f404036351`. No force push.
+- FRA/JAP/QNG/RUS/VNM: 265 events, 26 journals, 530 choices. Static JSON/source/entity/region/modifier audit passed. 106 image candidates are not ingested binaries.
+- **Blocker:** FRA/JAP/VNM contain 102 journal progress steps using persistent `event_fired`; engine reevaluates them monthly, repeatedly awarding progress. Implement one-shot milestone semantics and regression tests. QNG/RUS use time-based progress.
+- 187 events have mid-month `fire_date`; engine dispatch is monthly. Test delay and window/entity-lifetime boundaries, especially QNG 1912-02-12 and RUS 1917-03-15.
+- No builders, tests, simulation, Android build, APK or device QA run. Not release-ready.
+- Report: `docs/research/history/CG64_CHATGPT_IMPORT_REVIEW_2026-11-24_VI.md`; commit `010a1314f745346719f40bc70496d4929618d36c`.
+- MSG-129 remains IN_PROGRESS; next A1 countries PRU → USA → TUR.
