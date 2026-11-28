@@ -2183,6 +2183,391 @@
       }
     },
     {
+      "id": "ill_fra_commune_1871",
+      "type": "illustration_event",
+      "subject": "fra_commune_1871",
+      "name": "Chiến lũy Công xã Paris tại Chaussée Ménilmontant",
+      "description": "Ảnh tư liệu về chiến lũy trong Công xã Paris, gắn với ngày 18 tháng 3 năm 1871.",
+      "path": "content/illustrations/events/fra_commune_1871.webp",
+      "thumbnail_path": "content/illustrations/events/fra_commune_1871_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1871,
+        "to": 1871
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Commune de Paris barricade de la Chaussée Ménilmontant.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Commune%20de%20Paris%20barricade%20de%20la%20Chauss%C3%A9e%20M%C3%A9nilmontant.jpg",
+        "statement": "{{PD-Art|PD-old-100-expired}}",
+        "title": "Ảnh tư liệu về chiến lũy trong Công xã Paris, gắn với ngày 18 tháng 3 năm 1871.",
+        "original_source": null,
+        "source_pixels": [
+          1535,
+          1535
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Commune%20de%20Paris%20barricade%20de%20la%20Chauss%C3%A9e%20M%C3%A9nilmontant.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-100-expired}}"
+      },
+      "author": "Unknown (period photograph)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons page describes a faithful reproduction of a public-domain historical photograph/work and records PD in origin and US; page also links a CC0 statement for the reproduction. Preserve source attribution and re-check exact file status before ingestion."
+      }
+    },
+    {
+      "id": "ill_fra_coup_1851",
+      "type": "illustration_event",
+      "subject": "fra_coup_1851",
+      "name": "Đảo chính ngày 2 tháng 12 năm 1851",
+      "description": "Bản khắc đương thời mô tả cuộc đảo chính Louis-Napoléon Bonaparte; bản in ghi năm 1853.",
+      "path": "content/illustrations/events/fra_coup_1851.webp",
+      "thumbnail_path": "content/illustrations/events/fra_coup_1851_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1851,
+        "to": 1852
+      },
+      "quality": "supported",
+      "date": "1853",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Coup d'État 2 décembre 1851.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Coup%20d%27%C3%89tat%202%20d%C3%A9cembre%201851.jpg",
+        "statement": "{{PD-Art|PD-old-100-expired}}",
+        "title": "Bản khắc đương thời mô tả cuộc đảo chính Louis-Napoléon Bonaparte; bản in ghi năm 1853.",
+        "original_source": null,
+        "source_pixels": [
+          1285,
+          1867
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Coup%20d%27%C3%89tat%202%20d%C3%A9cembre%201851.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-100-expired}}"
+      },
+      "author": "Eugène Leguay (engraving; d. 1883), after Philippoteaux (d. 1884)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons page cites Gallica and the engraver/artist death dates; it states PD in country of origin and US, with no known restrictions. Attribution to Gallica/artist should be retained; re-read live rights during ingestion."
+      }
+    },
+    {
+      "id": "ill_fra_dreyfus_1895",
+      "type": "illustration_event",
+      "subject": "fra_dreyfus_1895",
+      "name": "Lễ tước quân hàm Alfred Dreyfus",
+      "description": "Tranh bìa phụ trương Le Petit Journal số 217, xuất bản ngày 13 tháng 1 năm 1895, mô tả lễ tước quân hàm Dreyfus diễn ra ngày 5 tháng 1 năm 1895; nguồn Gallica.",
+      "path": "content/illustrations/events/fra_dreyfus_1895.webp",
+      "thumbnail_path": "content/illustrations/events/fra_dreyfus_1895_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1894,
+        "to": 1895
+      },
+      "quality": "supported",
+      "date": "1895-01-13",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Degradation alfred dreyfus.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Degradation%20alfred%20dreyfus.jpg",
+        "statement": "{{PD-Art|PD-old-100-1923}}",
+        "title": "Tranh bìa phụ trương Le Petit Journal số 217, xuất bản ngày 13 tháng 1 năm 1895, mô tả lễ tước quân hàm Dreyfus diễn ra ngày 5 tháng 1 năm 1895; nguồn Gallica.",
+        "original_source": null,
+        "source_pixels": [
+          2841,
+          3225
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Degradation%20alfred%20dreyfus.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-100-1923}}"
+      },
+      "author": "Henri Meyer (1841–1899)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons/Gallica attribution identifies Henri Meyer (d. 1899); distinguish publication date (13 Jan 1895) from depicted degradation ceremony (5 Jan 1895). Commons states PD in country of origin and US. Retain attribution and re-read rights before ingestion."
+      }
+    },
+    {
+      "id": "ill_fra_exposition_1889",
+      "type": "illustration_event",
+      "subject": "fra_exposition_1889",
+      "name": "Tháp Eiffel tại Triển lãm thế giới 1889",
+      "description": "Ảnh tư liệu tháp Eiffel trong khuôn khổ Triển lãm thế giới Paris năm 1889; nguồn Goupil / Bộ Văn hóa Pháp.",
+      "path": "content/illustrations/events/fra_exposition_1889.webp",
+      "thumbnail_path": "content/illustrations/events/fra_exposition_1889_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1889,
+        "to": 1889
+      },
+      "quality": "supported",
+      "date": "1889",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Tour Eiffel exposition universelle 1889.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Tour%20Eiffel%20exposition%20universelle%201889.jpg",
+        "statement": "{{PD-EU-no author disclosure}} {{PD-1923}}",
+        "title": "Ảnh tư liệu tháp Eiffel trong khuôn khổ Triển lãm thế giới Paris năm 1889; nguồn Goupil / Bộ Văn hóa Pháp.",
+        "original_source": "http://www.culture.gouv.fr/GOUPIL/FILES/PHOTOGRAPHIE.html",
+        "source_pixels": [
+          473,
+          577
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Tour%20Eiffel%20exposition%20universelle%201889.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-EU-no author disclosure}} {{PD-1923}}"
+      },
+      "author": "Anonymous (period photograph)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons page identifies Ministry of Culture/Goupil provenance and explains PD for anonymous EU work and pre-1931 publication in the US. Preserve source credit; re-read rights at ingest."
+      }
+    },
+    {
+      "id": "ill_fra_february_revolution_1848",
+      "type": "illustration_event",
+      "subject": "fra_february_revolution_1848",
+      "name": "Sơ đồ các chiến lũy Paris tháng 2 năm 1848",
+      "description": "Bản đồ các chiến lũy trong Cách mạng tháng Hai, lưu tại Bibliothèque nationale de France / Gallica.",
+      "path": "content/illustrations/events/fra_february_revolution_1848.webp",
+      "thumbnail_path": "content/illustrations/events/fra_february_revolution_1848_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1848,
+        "to": 1848
+      },
+      "quality": "supported",
+      "date": "1850",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Plan des barricades de février (1848) - Nous devons ce plan et ces indications à l'obligeance de Mr le colonel du génie Leblanc - btv1b53136035z.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Plan%20des%20barricades%20de%20f%C3%A9vrier%20%281848%29%20-%20Nous%20devons%20ce%20plan%20et%20ces%20indications%20%C3%A0%20l%27obligeance%20de%20Mr%20le%20colonel%20du%20g%C3%A9nie%20Leblanc%20-%20btv1b53136035z.jpg",
+        "statement": "{{PD-US-expired}} {{PD-France}}",
+        "title": "Bản đồ các chiến lũy trong Cách mạng tháng Hai, lưu tại Bibliothèque nationale de France / Gallica.",
+        "original_source": null,
+        "source_pixels": [
+          5830,
+          4096
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Plan%20des%20barricades%20de%20f%C3%A9vrier%20%281848%29%20-%20Nous%20devons%20ce%20plan%20et%20ces%20indications%20%C3%A0%20l%27obligeance%20de%20Mr%20le%20colonel%20du%20g%C3%A9nie%20Leblanc%20-%20btv1b53136035z.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US-expired}} {{PD-France}}"
+      },
+      "author": "Leblanc (mapmaker attribution; biographical identity not independently established)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page identifies the BnF/Gallica source and a pre-1931 publication. PD-US basis is stated; France term/anonymous-work basis is stated on page. Preserve BnF attribution; ingester must re-read page and rights before distribution."
+      }
+    },
+    {
+      "id": "ill_fra_paris_liberation_1944",
+      "type": "illustration_event",
+      "subject": "fra_paris_liberation_1944",
+      "name": "Paris trong ngày giải phóng năm 1944",
+      "description": "Ảnh Library of Congress về Paris trong ngày giải phóng, do Jack Downey / Office of War Information chụp.",
+      "path": "content/illustrations/events/fra_paris_liberation_1944.webp",
+      "thumbnail_path": "content/illustrations/events/fra_paris_liberation_1944_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1944,
+        "to": 1944
+      },
+      "quality": "supported",
+      "date": "1944-08-26",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Paris1944.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Paris1944.jpg",
+        "statement": "{{PD-USGov-Military}}",
+        "title": "Ảnh Library of Congress về Paris trong ngày giải phóng, do Jack Downey / Office of War Information chụp.",
+        "original_source": "Library of Congress Prints and Photographs Division Washington, D.C. 20540 USA (digital file from original transparency) fsac 1a55001 http://hdl.loc.gov/loc.pnp/fsac.1a55001",
+        "source_pixels": [
+          7290,
+          5681
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Paris1944.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-USGov-Military}}"
+      },
+      "author": "Jack Downey / U.S. Office of War Information",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "US federal-government work / PD-US basis only. Do not infer worldwide or French public-domain status; keep pending unless distribution territory is approved after legal review."
+      }
+    },
+    {
+      "id": "ill_fra_verdun_1916",
+      "type": "illustration_event",
+      "subject": "fra_verdun_1916",
+      "name": "Binh sĩ Pháp tại Verdun năm 1916",
+      "description": "Ảnh tư liệu về trận Verdun, nguồn bộ sưu tập DocAnciens / docpix.fr.",
+      "path": "content/illustrations/events/fra_verdun_1916.webp",
+      "thumbnail_path": "content/illustrations/events/fra_verdun_1916_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1916,
+        "to": 1916
+      },
+      "quality": "supported",
+      "date": "1916",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Bataille de Verdun 1916.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Bataille%20de%20Verdun%201916.jpg",
+        "statement": "{{PD-US}} {{PD-France}}",
+        "title": "Ảnh tư liệu về trận Verdun, nguồn bộ sưu tập DocAnciens / docpix.fr.",
+        "original_source": "www.docpix.fr",
+        "source_pixels": [
+          1875,
+          1402
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Bataille%20de%20Verdun%201916.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US}} {{PD-France}}"
+      },
+      "author": "Collection DocAnciens / docpix.fr",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons page states PD-US and PD-France on its stated basis and requires attribution; this is not a global-rights clearance. Keep pending until ingestion/legal review confirms distribution territories."
+      }
+    },
+    {
       "id": "ill_gbr_amritsar_1919",
       "type": "illustration_event",
       "subject": "gbr_amritsar_1919",
@@ -5703,6 +6088,336 @@
       }
     },
     {
+      "id": "ill_jap_kanto_earthquake",
+      "type": "illustration_event",
+      "subject": "jap_kanto_earthquake",
+      "name": "Great Kantō Earthquake destruction",
+      "description": "Photograph of destruction after the Great Kantō Earthquake of 1923",
+      "path": "content/illustrations/events/jap_kanto_earthquake.webp",
+      "thumbnail_path": "content/illustrations/events/jap_kanto_earthquake_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1923,
+        "to": 1923
+      },
+      "quality": "supported",
+      "date": "1923",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "1923 Great Kantō earthquake destructions.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:1923%20Great%20Kant%C5%8D%20earthquake%20destructions.jpg",
+        "statement": "{{PD-Japan-oldphoto}}",
+        "title": "Photograph of destruction after the Great Kantō Earthquake of 1923",
+        "original_source": "https://www.flickr.com/photos/foundin_a_attic/46712085142/in/album-72157681983071616/",
+        "source_pixels": [
+          6316,
+          3815
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:1923%20Great%20Kant%C5%8D%20earthquake%20destructions.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Japan-oldphoto}}"
+      },
+      "author": "Unknown author; source Flickr collection",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page reports public-domain status in Japan and the United States under the expired Japanese photograph term. Original is 18.42 MB; verify source provenance and use a derivative."
+      }
+    },
+    {
+      "id": "ill_jap_meiji_restoration",
+      "type": "illustration_event",
+      "subject": "jap_meiji_restoration",
+      "name": "Portrait of Emperor Meiji",
+      "description": "Albumen-silver portrait of Emperor Meiji photographed by Uchida Kuichi in 1873, during the early Meiji state-building period",
+      "path": "content/illustrations/events/jap_meiji_restoration.webp",
+      "thumbnail_path": "content/illustrations/events/jap_meiji_restoration_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1873,
+        "to": 1873
+      },
+      "quality": "supported",
+      "date": "1873",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Meiji Emperor.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Meiji%20Emperor.jpg",
+        "statement": "{{PD-old-auto-expired\n |deathyear=1875\n}}",
+        "title": "Albumen-silver portrait of Emperor Meiji photographed by Uchida Kuichi in 1873, during the early Meiji state-building period",
+        "original_source": "The Cleveland Museum of Art(Kinoshita). Published in the Japanese book, Meiji Tenno gyoden (Tokyo:  Kaneo Bun'endo, 1912)",
+        "source_pixels": [
+          1424,
+          1884
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Meiji%20Emperor.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-auto-expired\n |deathyear=1875\n}}"
+      },
+      "author": "Uchida Kuichi (1844–1875)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page identifies Uchida Kuichi, date 1873, and public-domain status in Japan and the United States; Public Domain Mark. Portrait is contextual, not a depiction of the Restoration proclamation."
+      }
+    },
+    {
+      "id": "ill_jap_pearl_harbor",
+      "type": "illustration_event",
+      "subject": "jap_pearl_harbor",
+      "name": "Japanese aircraft attack Pearl Harbor",
+      "description": "Photograph depicting a Japanese aircraft during the attack on Pearl Harbor on 7 December 1941",
+      "path": "content/illustrations/events/jap_pearl_harbor.webp",
+      "thumbnail_path": "content/illustrations/events/jap_pearl_harbor_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1941,
+        "to": 1941
+      },
+      "quality": "supported",
+      "date": "1941-12-07",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Japanese aircraft attacking Pearl Harbor, 1941.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Japanese%20aircraft%20attacking%20Pearl%20Harbor%2C%201941.jpg",
+        "statement": "{{cc-zero}}",
+        "title": "Photograph depicting a Japanese aircraft during the attack on Pearl Harbor on 7 December 1941",
+        "original_source": "https://ww2db.com/image.php?image_id=13472",
+        "source_pixels": [
+          2577,
+          1906
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Japanese%20aircraft%20attacking%20Pearl%20Harbor%2C%201941.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{cc-zero}}"
+      },
+      "author": "Unknown; Library of Congress source recorded",
+      "credit": "Wikimedia Commons (cc0)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page dedicates the image to CC0 1.0 worldwide. Source metadata names the Library of Congress but cites a secondary hosting page; verify the original archival identifier during ingestion."
+      }
+    },
+    {
+      "id": "ill_jap_perry_arrival",
+      "type": "illustration_event",
+      "subject": "jap_perry_arrival",
+      "name": "Perry's landing in Japan, 14 July 1853",
+      "description": "Library of Congress lithograph depicting Commodore Perry's expedition landing at Gore-Hama, Japan, on 14 July 1853",
+      "path": "content/illustrations/events/jap_perry_arrival.webp",
+      "thumbnail_path": "content/illustrations/events/jap_perry_arrival_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1853,
+        "to": 1853
+      },
+      "quality": "supported",
+      "date": "1853",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "The American expedition, under Commodore Perry, landing in Japan, July 14, 1853 - Lith. & print by Hatch & Severyn, 140 Fulton St. N.Y. ; Severyn del. LCCN2014647410.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:The%20American%20expedition%2C%20under%20Commodore%20Perry%2C%20landing%20in%20Japan%2C%20July%2014%2C%201853%20-%20Lith.%20%26%20print%20by%20Hatch%20%26%20Severyn%2C%20140%20Fulton%20St.%20N.Y.%20%3B%20Severyn%20del.%20LCCN2014647410.jpg",
+        "statement": "{{PD-old-100-1923}}",
+        "title": "Library of Congress lithograph depicting Commodore Perry's expedition landing at Gore-Hama, Japan, on 14 July 1853",
+        "original_source": "Library of Congress",
+        "source_pixels": [
+          8704,
+          6568
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:The%20American%20expedition%2C%20under%20Commodore%20Perry%2C%20landing%20in%20Japan%2C%20July%2014%2C%201853%20-%20Lith.%20%26%20print%20by%20Hatch%20%26%20Severyn%2C%20140%20Fulton%20St.%20N.Y.%20%3B%20Severyn%20del.%20LCCN2014647410.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-100-1923}}"
+      },
+      "author": "Hatch & Severyn; Charles Severyn, artist; Bayard Taylor, caption",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page identifies Library of Congress item LCCN 2014647410 and the rights advisory 'No known restrictions on publication'; the print was published in 1853. Original is 9.61 MB and over 8,700 px; ingest a controlled derivative."
+      }
+    },
+    {
+      "id": "ill_jap_russo_japanese_war",
+      "type": "illustration_event",
+      "subject": "jap_russo_japanese_war",
+      "name": "Japanese soldiers near Chemulpo",
+      "description": "Photograph of Japanese soldiers near Chemulpo, Korea, during the opening phase of the Russo-Japanese War in 1904",
+      "path": "content/illustrations/events/jap_russo_japanese_war.webp",
+      "thumbnail_path": "content/illustrations/events/jap_russo_japanese_war_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1904,
+        "to": 1904
+      },
+      "quality": "supported",
+      "date": "2007",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Japanese soldiers near Chemulpo Korea August September 1904 Russo Japanese War.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Japanese%20soldiers%20near%20Chemulpo%20Korea%20August%20September%201904%20Russo%20Japanese%20War.jpg",
+        "statement": "{{PD-Japan-oldphoto}}",
+        "title": "Photograph of Japanese soldiers near Chemulpo, Korea, during the opening phase of the Russo-Japanese War in 1904",
+        "original_source": "Musee de l'Armee, Paris",
+        "source_pixels": [
+          2464,
+          1804
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Japanese%20soldiers%20near%20Chemulpo%20Korea%20August%20September%201904%20Russo%20Japanese%20War.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Japan-oldphoto}}"
+      },
+      "author": "Unknown; source Musée de l'Armée, Paris",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page identifies the Musée de l'Armée as source and reports public-domain status in Japan and the United States under the expired Japanese photograph term. The page warns the publication history should be checked; candidate only."
+      }
+    },
+    {
+      "id": "ill_jap_sino_japanese_war",
+      "type": "illustration_event",
+      "subject": "jap_sino_japanese_war",
+      "name": "First Sino-Japanese War photograph",
+      "description": "Contemporary 1894 photograph associated with the First Sino-Japanese War; source cited as Ozawa Kenshin, Bakumatsu Meiji no Shashin, p.340",
+      "path": "content/illustrations/events/jap_sino_japanese_war.webp",
+      "thumbnail_path": "content/illustrations/events/jap_sino_japanese_war_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1894,
+        "to": 1894
+      },
+      "quality": "supported",
+      "date": "1894",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Sino Japanese war 1894.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Sino%20Japanese%20war%201894.jpg",
+        "statement": "{{PD-Japan-oldphoto}}",
+        "title": "Contemporary 1894 photograph associated with the First Sino-Japanese War; source cited as Ozawa Kenshin, Bakumatsu Meiji no Shashin, p.340",
+        "original_source": "\"Bakumatsu Meiji no Shashin\" by Ozawa Kenshin, p.340",
+        "source_pixels": [
+          2837,
+          1935
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Sino%20Japanese%20war%201894.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Japan-oldphoto}}"
+      },
+      "author": "Oomoto (1894)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page marks the photograph public domain in Japan and the United States under the expired Japanese photo term. The page notes source details are incomplete; verify provenance before approval."
+      }
+    },
+    {
       "id": "ill_ken_state_building_1964",
       "type": "illustration_event",
       "subject": "ken_state_building_1964",
@@ -6143,6 +6858,446 @@
       }
     },
     {
+      "id": "ill_pru_blood_iron_speech_1862",
+      "type": "illustration_event",
+      "subject": "pru_blood_iron_speech_1862",
+      "name": "Otto von Bismarck portrait",
+      "description": "Portrait of Otto von Bismarck, suitable as a period portrait for his 1862 ministerial period",
+      "path": "content/illustrations/events/pru_blood_iron_speech_1862.webp",
+      "thumbnail_path": "content/illustrations/events/pru_blood_iron_speech_1862_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1862,
+        "to": 1873
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Otto von Bismarck.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Otto%20von%20Bismarck.jpg",
+        "statement": "{{PD-Art}}",
+        "title": "Portrait of Otto von Bismarck, suitable as a period portrait for his 1862 ministerial period",
+        "original_source": null,
+        "source_pixels": [
+          350,
+          503
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Otto%20von%20Bismarck.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art}}"
+      },
+      "author": "Portrait artist not identified in file record",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page identifies a faithful reproduction of a public-domain work and requires a US public-domain tag. The image is contextual rather than a verified 1862 sitting; retain as a portrait candidate only."
+      }
+    },
+    {
+      "id": "ill_pru_german_empire_proclamation_1871",
+      "type": "illustration_event",
+      "subject": "pru_german_empire_proclamation_1871",
+      "name": "Proclamation of the German Empire at Versailles",
+      "description": "Anton von Werner's depiction of Wilhelm I's proclamation as German Emperor in Versailles on 18 January 1871",
+      "path": "content/illustrations/events/pru_german_empire_proclamation_1871.webp",
+      "thumbnail_path": "content/illustrations/events/pru_german_empire_proclamation_1871_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1871,
+        "to": 1871
+      },
+      "quality": "supported",
+      "date": "1885 (date of painting)",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Anton von Werner - Kaiserproklamation in Versailles 1871.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Anton%20von%20Werner%20-%20Kaiserproklamation%20in%20Versailles%201871.jpg",
+        "statement": "{{PD-Art|PD-old-auto|deathyear=1915}}",
+        "title": "Anton von Werner's depiction of Wilhelm I's proclamation as German Emperor in Versailles on 18 January 1871",
+        "original_source": "Originally from http://agiw.fak1.tu-berlin.de/Auditorium/AntWirkG/SOKap7/VersKK.jpg",
+        "source_pixels": [
+          1292,
+          1095
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Anton%20von%20Werner%20-%20Kaiserproklamation%20in%20Versailles%201871.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-auto|deathyear=1915}}"
+      },
+      "author": "Anton von Werner (1843–1915)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons page states the artist died in 1915, the work and faithful 2D reproduction are PD, with US PD tag / Public Domain Mark. Recheck territorial terms at ingestion."
+      }
+    },
+    {
+      "id": "ill_pru_march_revolution_1848",
+      "type": "illustration_event",
+      "subject": "pru_march_revolution_1848",
+      "name": "Barricade fighting at Berlin Alexanderplatz",
+      "description": "Contemporary-era depiction of the March Revolution barricade fighting in Berlin, 1848",
+      "path": "content/illustrations/events/pru_march_revolution_1848.webp",
+      "thumbnail_path": "content/illustrations/events/pru_march_revolution_1848_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1848,
+        "to": 1848
+      },
+      "quality": "supported",
+      "date": "1848",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Painting of a barricade battle in Berlin's Alexanderplatz in 1848.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Painting%20of%20a%20barricade%20battle%20in%20Berlin%27s%20Alexanderplatz%20in%201848.png",
+        "statement": "{{PD-old-70}}",
+        "title": "Contemporary-era depiction of the March Revolution barricade fighting in Berlin, 1848",
+        "original_source": "Collection",
+        "source_pixels": [
+          1400,
+          1001
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Painting%20of%20a%20barricade%20battle%20in%20Berlin%27s%20Alexanderplatz%20in%201848.png",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-70}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page reports Public Domain in source country and US, and Public Domain Mark. Candidate only; recheck file status and distribution rights in ingestion."
+      }
+    },
+    {
+      "id": "ill_pru_reichstag_building_opens_1894",
+      "type": "illustration_event",
+      "subject": "pru_reichstag_building_opens_1894",
+      "name": "Reichstag building interior, 1894",
+      "description": "Period image of the Reichstag building in Berlin around 1894, published in Die Gartenlaube",
+      "path": "content/illustrations/events/pru_reichstag_building_opens_1894.webp",
+      "thumbnail_path": "content/illustrations/events/pru_reichstag_building_opens_1894_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1894,
+        "to": 1894
+      },
+      "quality": "supported",
+      "date": "<br/>",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Reichstag-1894.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Reichstag-1894.jpg",
+        "statement": "{{PD-old}}",
+        "title": "Period image of the Reichstag building in Berlin around 1894, published in Die Gartenlaube",
+        "original_source": ":de:Die Gartenlaube, Sammelband 1894, Nr. 45, S. 761",
+        "source_pixels": [
+          2852,
+          2006
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Reichstag-1894.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old}}"
+      },
+      "author": "Willy Stöwer (1864–1931), original illustration in Die Gartenlaube",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons page reports Public Domain in source country and US, with Public Domain Mark. Confirm the attribution and use the Commons derivative at ingestion."
+      }
+    },
+    {
+      "id": "ill_pru_sedan_victory_1870",
+      "type": "illustration_event",
+      "subject": "pru_sedan_victory_1870",
+      "name": "Battle of Sedan",
+      "description": "Library of Congress print depicting the Battle of Sedan in 1870",
+      "path": "content/illustrations/events/pru_sedan_victory_1870.webp",
+      "thumbnail_path": "content/illustrations/events/pru_sedan_victory_1870_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "quality": "supported",
+      "date": "1870",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "The battle of Sedan...Die schlacht bei Sedan LCCN2003679775.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:The%20battle%20of%20Sedan...Die%20schlacht%20bei%20Sedan%20LCCN2003679775.jpg",
+        "statement": "{{PD-old-100-1923}}",
+        "title": "Library of Congress print depicting the Battle of Sedan in 1870",
+        "original_source": "Library of Congress",
+        "source_pixels": [
+          9067,
+          7346
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:The%20battle%20of%20Sedan...Die%20schlacht%20bei%20Sedan%20LCCN2003679775.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-100-1923}}"
+      },
+      "author": "Popular Graphic Arts",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons page identifies Library of Congress digital ID pga.02507 and states PD in source country and US (published before 1931). Original is over 9,000 px; use a controlled derivative, not the full original."
+      }
+    },
+    {
+      "id": "ill_pru_wilhelm_i_accession_1861",
+      "type": "illustration_event",
+      "subject": "pru_wilhelm_i_accession_1861",
+      "name": "Coronation of Wilhelm I as King of Prussia",
+      "description": "Depiction of Wilhelm I's coronation at Königsberg in 1861",
+      "path": "content/illustrations/events/pru_wilhelm_i_accession_1861.webp",
+      "thumbnail_path": "content/illustrations/events/pru_wilhelm_i_accession_1861_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1861,
+        "to": 1861
+      },
+      "quality": "supported",
+      "date": "1861 (laut Vorlesungsunterlagen, Universität zu Köln)",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Krönung Wilhelm I. zum König von Preußen 1861.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Kr%C3%B6nung%20Wilhelm%20I.%20zum%20K%C3%B6nig%20von%20Preu%C3%9Fen%201861.png",
+        "statement": "{{PD-old-100}}",
+        "title": "Depiction of Wilhelm I's coronation at Königsberg in 1861",
+        "original_source": "https://search.smb.museum/object/obj-962111",
+        "source_pixels": [
+          420,
+          312
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Kr%C3%B6nung%20Wilhelm%20I.%20zum%20K%C3%B6nig%20von%20Preu%C3%9Fen%201861.png",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-100}}"
+      },
+      "author": "Unknown painter",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page reports Public Domain and Public Domain Mark. The Commons record cites university teaching material as source; verify provenance at ingestion."
+      }
+    },
+    {
+      "id": "ill_qng_boxer_movement",
+      "type": "illustration_event",
+      "subject": "qng_boxer_movement",
+      "name": "A Chinese Boxer during the 1900 uprising",
+      "description": "A Chinese Boxer photographed in 1900; the flag reads as an imperial supply station of the Boxer movement. Source record: U.S. National Archives 530870.",
+      "path": "content/illustrations/events/qng_boxer_movement.webp",
+      "thumbnail_path": "content/illustrations/events/qng_boxer_movement_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1899,
+        "to": 1901
+      },
+      "quality": "supported",
+      "date": "1900",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Boxer1900.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Boxer1900.jpg",
+        "statement": "{{PD-USGov-Military-Army}}",
+        "title": "A Chinese Boxer photographed in 1900; the flag reads as an imperial supply station of the Boxer movement. Source record: U.S. National Archives 530870.",
+        "original_source": "https://research.archives.gov/description/530870",
+        "source_pixels": [
+          825,
+          1181
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Boxer1900.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-USGov-Military-Army}}"
+      },
+      "author": "Department of the Army, Office of the Chief Signal Officer",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons records the source as U.S. National Archives and identifies the author as a U.S. Army official acting in official duties; U.S. federal-government public-domain basis. Candidate only; ingestion tool must recheck rights and image integrity."
+      }
+    },
+    {
+      "id": "ill_qng_eight_nation_alliance",
+      "type": "illustration_event",
+      "subject": "qng_eight_nation_alliance",
+      "name": "Attack on the Beijing city wall during the Boxer crisis",
+      "description": "Contemporary image of an attack on Beijing's city wall during the Boxer Rebellion, September 1900; Commons lists the Library of Congress as source.",
+      "path": "content/illustrations/events/qng_eight_nation_alliance.webp",
+      "thumbnail_path": "content/illustrations/events/qng_eight_nation_alliance_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1900,
+        "to": 1900
+      },
+      "quality": "supported",
+      "date": "1900-09",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Beijing_Castle_Boxer_Rebellion_1900_ORIGINAL.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Beijing_Castle_Boxer_Rebellion_1900_ORIGINAL.jpg",
+        "statement": "{{PD-US}}",
+        "title": "Contemporary image of an attack on Beijing's city wall during the Boxer Rebellion, September 1900; Commons lists the Library of Congress as source.",
+        "original_source": "Library of Congress",
+        "source_pixels": [
+          10164,
+          7435
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Beijing_Castle_Boxer_Rebellion_1900_ORIGINAL.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US}}"
+      },
+      "author": "Torajirō Kasai",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page records public domain in the United States and identifies the Library of Congress as source. Very large original (over 50 MB); ingestion should select an appropriate derivative and recheck source/rights."
+      }
+    },
+    {
       "id": "ill_rhod_udi_movement_1965",
       "type": "illustration_event",
       "subject": "rhod_udi_movement_1965",
@@ -6250,6 +7405,1106 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-23",
         "note": "Same protest movement and immediate aftermath; shared image is intentional."
+      }
+    },
+    {
+      "id": "ill_rus_bloody_sunday",
+      "type": "illustration_event",
+      "subject": "rus_bloody_sunday",
+      "name": "Bloody Sunday in St Petersburg (historical reconstruction)",
+      "description": "A 1925 reconstruction of the Bloody Sunday events in St Petersburg, depicting the confrontation between demonstrators and imperial troops.",
+      "path": "content/illustrations/events/rus_bloody_sunday.webp",
+      "thumbnail_path": "content/illustrations/events/rus_bloody_sunday_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1905,
+        "to": 1905
+      },
+      "quality": "supported",
+      "date": "1925",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Bloody_Sunday_Russia_1905.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Bloody_Sunday_Russia_1905.png",
+        "statement": "{{PD-Art}}",
+        "title": "A 1925 reconstruction of the Bloody Sunday events in St Petersburg, depicting the confrontation between demonstrators and imperial troops.",
+        "original_source": "Reproduction of a picture",
+        "source_pixels": [
+          1420,
+          1027
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Bloody_Sunday_Russia_1905.png",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art}}"
+      },
+      "author": "Vyacheslav Viskovsky",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons page describes this as a 1925 reconstruction and PD-Art reproduction of an underlying public-domain work; U.S. public-domain basis is stated. It is an illustration, not a contemporary photograph."
+      }
+    },
+    {
+      "id": "ill_rus_first_duma",
+      "type": "illustration_event",
+      "subject": "rus_first_duma",
+      "name": "Members of the First State Duma",
+      "description": "Group portrait of members of the Russian Empire's State Duma in 1906; archive source listed as the Center for Jewish History digital collections.",
+      "path": "content/illustrations/events/rus_first_duma.webp",
+      "thumbnail_path": "content/illustrations/events/rus_first_duma_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1906,
+        "to": 1906
+      },
+      "quality": "supported",
+      "date": "1906",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Russian_Duma_Members,_1906.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Russian_Duma_Members%2C_1906.jpg",
+        "statement": "{{PD-US-expired}} {{PD-RusEmpire}}",
+        "title": "Group portrait of members of the Russian Empire's State Duma in 1906; archive source listed as the Center for Jewish History digital collections.",
+        "original_source": "https://archives.cjh.org/repositories/7/digital_objects/435833 #2",
+        "source_pixels": [
+          9814,
+          12834
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Russian_Duma_Members%2C_1906.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US-expired}} {{PD-RusEmpire}}"
+      },
+      "author": "Russian Empire",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons page states U.S. public-domain status. Original file is about 124 MB; do not ingest the original as-is. Verify source metadata and create a quality-controlled derivative."
+      }
+    },
+    {
+      "id": "ill_rus_nicholas_ii_abdication",
+      "type": "illustration_event",
+      "subject": "rus_nicholas_ii_abdication",
+      "name": "Nicholas II after abdication",
+      "description": "Portrait of Nicholas II at Tsarskoye Selo after his abdication in March 1917; Library of Congress Prints and Photographs digital ID ggbain.25191.",
+      "path": "content/illustrations/events/rus_nicholas_ii_abdication.webp",
+      "thumbnail_path": "content/illustrations/events/rus_nicholas_ii_abdication_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1917,
+        "to": 1917
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "The_last_photo_of_Nicholas_II.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:The_last_photo_of_Nicholas_II.jpg",
+        "statement": "{{PD-old}}",
+        "title": "Portrait of Nicholas II at Tsarskoye Selo after his abdication in March 1917; Library of Congress Prints and Photographs digital ID ggbain.25191.",
+        "original_source": "*",
+        "source_pixels": [
+          793,
+          938
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:The_last_photo_of_Nicholas_II.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old}}"
+      },
+      "author": "Unknown; Library of Congress source",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons identifies the Library of Congress as source and records a PD-old missing structured copyright status; final rights verification required before ingestion."
+      }
+    },
+    {
+      "id": "ill_tur_abdulmejid_portrait_1839",
+      "type": "illustration_event",
+      "subject": "tur_abdulmejid_portrait_1839",
+      "name": "Portrait of Sultan Abdülmecid I",
+      "description": "Portrait of Abdülmecid I, Sultan during the opening years of the Tanzimat reforms",
+      "path": "content/illustrations/events/tur_abdulmejid_portrait_1839.webp",
+      "thumbnail_path": "content/illustrations/events/tur_abdulmejid_portrait_1839_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1839,
+        "to": 1861
+      },
+      "quality": "supported",
+      "date": "1846",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Abdulmejid portrait.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Abdulmejid%20portrait.jpg",
+        "statement": "{{PD-Art|PD-old-auto-expired|deathyear=1901}}",
+        "title": "Portrait of Abdülmecid I, Sultan during the opening years of the Tanzimat reforms",
+        "original_source": "https://www.mutualart.com/Artwork/Zugeschrieben---Portrat-des-osmanischen-/D98D1217A5B5703A",
+        "source_pixels": [
+          1045,
+          1331
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Abdulmejid%20portrait.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-auto-expired|deathyear=1901}}"
+      },
+      "author": "Konstantin Cretius (1814–1901)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page attributes the portrait to Konstantin Cretius, who died in 1901, and states PD in source country and US with Public Domain Mark. This is a period portrait, not a depiction of the Gülhane proclamation itself."
+      }
+    },
+    {
+      "id": "ill_tur_constitution_1876",
+      "type": "illustration_event",
+      "subject": "tur_constitution_1876",
+      "name": "First page of the Ottoman Constitution",
+      "description": "First page of the Kanûn-ı Esâsî, promulgated on 23 December 1876",
+      "path": "content/illustrations/events/tur_constitution_1876.webp",
+      "thumbnail_path": "content/illustrations/events/tur_constitution_1876_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1876,
+        "to": 1876
+      },
+      "quality": "supported",
+      "date": "1876-12-23",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Kanun-i Esasi.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Kanun-i%20Esasi.jpg",
+        "statement": "{{PD-old-1923}} {{PD-Ottoman}}",
+        "title": "First page of the Kanûn-ı Esâsî, promulgated on 23 December 1876",
+        "original_source": "Uploaded from German Wikipedia, orginally from here",
+        "source_pixels": [
+          339,
+          583
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Kanun-i%20Esasi.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-1923}} {{PD-Ottoman}}"
+      },
+      "author": "Ahmed Kamil Printing House (publisher)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page identifies the first page of the 1876 constitution and reports PD in source country and US, plus Public Domain Mark. Verify the source scan and legibility in the ingestion pipeline."
+      }
+    },
+    {
+      "id": "ill_tur_crimean_war_1853",
+      "type": "illustration_event",
+      "subject": "tur_crimean_war_1853",
+      "name": "Omar Pasha with his officers during the Crimean War",
+      "description": "Photograph of Ottoman commander Omar Pasha with officers during the Crimean War, 1854",
+      "path": "content/illustrations/events/tur_crimean_war_1853.webp",
+      "thumbnail_path": "content/illustrations/events/tur_crimean_war_1853_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1853,
+        "to": 1856
+      },
+      "quality": "supported",
+      "date": "1854",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Kırım Savaşı, Ömer Paşa subaylarıyla 1854.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:K%C4%B1r%C4%B1m%20Sava%C5%9F%C4%B1%2C%20%C3%96mer%20Pa%C5%9Fa%20subaylar%C4%B1yla%201854.jpg",
+        "statement": "{{PD-old-100-1923}} {{PD-Turkey}}",
+        "title": "Photograph of Ottoman commander Omar Pasha with officers during the Crimean War, 1854",
+        "original_source": "http://www.royalcollection.org.uk/collection/2500622/omer-pacha-avec-ses-aides-des-camps-crimean-war-omar-pasha-with-his",
+        "source_pixels": [
+          503,
+          377
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:K%C4%B1r%C4%B1m%20Sava%C5%9F%C4%B1%2C%20%C3%96mer%20Pa%C5%9Fa%20subaylar%C4%B1yla%201854.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-100-1923}} {{PD-Turkey}}"
+      },
+      "author": "Carol Szathmari (1812–1887)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page cites the Royal Collection, identifies Carol Szathmari and marks PD in source country, US and Turkey with Public Domain Mark. Contemporary photograph, suitable for the Crimean War context."
+      }
+    },
+    {
+      "id": "ill_tur_gallipoli_1915",
+      "type": "illustration_event",
+      "subject": "tur_gallipoli_1915",
+      "name": "Ottoman soldiers assault at Gallipoli",
+      "description": "Photograph from the Turkish General Staff depicting Ottoman soldiers during the Gallipoli campaign in 1915",
+      "path": "content/illustrations/events/tur_gallipoli_1915.webp",
+      "thumbnail_path": "content/illustrations/events/tur_gallipoli_1915_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1915,
+        "to": 1915
+      },
+      "quality": "supported",
+      "date": "1915",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Assault of Ottoman soldiers.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Assault%20of%20Ottoman%20soldiers.jpg",
+        "statement": "{{PD-old}}",
+        "title": "Photograph from the Turkish General Staff depicting Ottoman soldiers during the Gallipoli campaign in 1915",
+        "original_source": "Turkish General Staff",
+        "source_pixels": [
+          902,
+          606
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Assault%20of%20Ottoman%20soldiers.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old}}"
+      },
+      "author": "Unknown author; Turkish General Staff source",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page identifies the Turkish General Staff as source and marks PD in source country with Public Domain Mark; the page explicitly says a US public-domain tag is also required. Confirm that US tag at ingestion before approval."
+      }
+    },
+    {
+      "id": "ill_tur_sultanate_abolished_1922",
+      "type": "illustration_event",
+      "subject": "tur_sultanate_abolished_1922",
+      "name": "Portrait of Mehmed VI, the last Ottoman sultan",
+      "description": "Photograph of Mehmed VI from the final years of the Ottoman Empire, held by the Library of Congress",
+      "path": "content/illustrations/events/tur_sultanate_abolished_1922.webp",
+      "thumbnail_path": "content/illustrations/events/tur_sultanate_abolished_1922_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1918,
+        "to": 1922
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Sébah & Joaillier - Sultan Mehmed VI.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:S%C3%A9bah%20%26%20Joaillier%20-%20Sultan%20Mehmed%20VI.jpg",
+        "statement": "{{PD-old-auto-expired|deathyear=1947}}",
+        "title": "Photograph of Mehmed VI from the final years of the Ottoman Empire, held by the Library of Congress",
+        "original_source": null,
+        "source_pixels": [
+          2631,
+          4075
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:S%C3%A9bah%20%26%20Joaillier%20-%20Sultan%20Mehmed%20VI.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-auto-expired|deathyear=1947}}"
+      },
+      "author": "Jean Pascal Sébah (1872–1947) and Polycarpe Joaillier (1848–1904); restoration by Adam Cuerden",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons page links the Library of Congress record ppmsca.04928, states the work is public domain in source country and US, and includes an attribution requirement for restoration by Adam Cuerden. Original is about 5.8 MB; use a derivative and retain attribution. This is a contextual portrait, not the Sultan's departure photograph."
+      }
+    },
+    {
+      "id": "ill_tur_young_turk_revolution_1908",
+      "type": "illustration_event",
+      "subject": "tur_young_turk_revolution_1908",
+      "name": "The Flag of Freedom and Young Turkish Revolutionaries",
+      "description": "1908 image depicting the constitutionalist movement and Young Turkish revolutionaries",
+      "path": "content/illustrations/events/tur_young_turk_revolution_1908.webp",
+      "thumbnail_path": "content/illustrations/events/tur_young_turk_revolution_1908_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1908,
+        "to": 1908
+      },
+      "quality": "supported",
+      "date": "1908",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "The Flag of Freedom escorted by Young Turkish Revolutionaries.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:The%20Flag%20of%20Freedom%20escorted%20by%20Young%20Turkish%20Revolutionaries.jpg",
+        "statement": "{{PD-Ottoman}}",
+        "title": "1908 image depicting the constitutionalist movement and Young Turkish revolutionaries",
+        "original_source": null,
+        "source_pixels": [
+          750,
+          1179
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:The%20Flag%20of%20Freedom%20escorted%20by%20Young%20Turkish%20Revolutionaries.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Ottoman}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page dates the image to 1908 and marks it public domain under Ottoman-era copyright rules. Author is unknown; keep as a candidate and preserve the Commons provenance note."
+      }
+    },
+    {
+      "id": "ill_usa_apollo_11_1969",
+      "type": "illustration_event",
+      "subject": "usa_apollo_11_1969",
+      "name": "Buzz Aldrin on the lunar surface",
+      "description": "NASA Apollo 11 photograph of Buzz Aldrin standing on the lunar surface during the 20 July 1969 EVA",
+      "path": "content/illustrations/events/usa_apollo_11_1969.webp",
+      "thumbnail_path": "content/illustrations/events/usa_apollo_11_1969_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1969,
+        "to": 1969
+      },
+      "quality": "supported",
+      "date": "1969-07-20",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Buzz Aldrin on the Lunar Surface.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Buzz%20Aldrin%20on%20the%20Lunar%20Surface.jpg",
+        "statement": "{{PD-USGov-NASA}}",
+        "title": "NASA Apollo 11 photograph of Buzz Aldrin standing on the lunar surface during the 20 July 1969 EVA",
+        "original_source": ":File:Buzz Aldrin on the Lunar Surface.png",
+        "source_pixels": [
+          4322,
+          5521
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Buzz%20Aldrin%20on%20the%20Lunar%20Surface.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-USGov-NASA}}"
+      },
+      "author": "Neil Armstrong / NASA",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page attributes the photograph to Neil Armstrong / NASA and marks it public domain as a NASA work. Original is 9.3 MB; use an optimised derivative and retain NASA attribution."
+      }
+    },
+    {
+      "id": "ill_usa_emancipation_1863",
+      "type": "illustration_event",
+      "subject": "usa_emancipation_1863",
+      "name": "Abraham Lincoln portrait, 8 November 1863",
+      "description": "Library of Congress portrait of Abraham Lincoln photographed by Alexander Gardner in Washington on 8 November 1863",
+      "path": "content/illustrations/events/usa_emancipation_1863.webp",
+      "thumbnail_path": "content/illustrations/events/usa_emancipation_1863_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1863,
+        "to": 1863
+      },
+      "quality": "supported",
+      "date": "1863-11-08",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Abraham Lincoln O-77 by Gardner, 1863.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Abraham%20Lincoln%20O-77%20by%20Gardner%2C%201863.jpg",
+        "statement": "{{PD-US}}",
+        "title": "Library of Congress portrait of Abraham Lincoln photographed by Alexander Gardner in Washington on 8 November 1863",
+        "original_source": null,
+        "source_pixels": [
+          4322,
+          5441
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Abraham%20Lincoln%20O-77%20by%20Gardner%2C%201863.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US}}"
+      },
+      "author": "Alexander Gardner",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page attributes the photograph to Alexander Gardner (1821–1882) and marks it public domain. The photograph is a contemporary Lincoln portrait, not a depiction of the signing of the Emancipation Proclamation. Use a derivative; original is 4.4 MB."
+      }
+    },
+    {
+      "id": "ill_usa_march_on_washington_1963",
+      "type": "illustration_event",
+      "subject": "usa_march_on_washington_1963",
+      "name": "Leaders at the March on Washington",
+      "description": "National Archives photograph of civil-rights and labour leaders at the head of the March on Washington, 28 August 1963",
+      "path": "content/illustrations/events/usa_march_on_washington_1963.webp",
+      "thumbnail_path": "content/illustrations/events/usa_march_on_washington_1963_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1963,
+        "to": 1963
+      },
+      "quality": "supported",
+      "date": ", Vol. 36, No. 4|accessdate=2007-01-02}}</ref>}}",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "March on washington Aug 28 1963.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:March%20on%20washington%20Aug%2028%201963.jpg",
+        "statement": "{{PD-USGov-USIA}}",
+        "title": "National Archives photograph of civil-rights and labour leaders at the head of the March on Washington, 28 August 1963",
+        "original_source": null,
+        "source_pixels": [
+          1978,
+          1567
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:March%20on%20washington%20Aug%2028%201963.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-USGov-USIA}}"
+      },
+      "author": "Unknown photographer; U.S. Information Agency record",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons page identifies the U.S. Information Agency photograph in NARA holdings (NAID 542002) and reports USIA/U.S. federal-government public-domain status. Confirm archive record and derivative metadata during ingestion."
+      }
+    },
+    {
+      "id": "ill_usa_mexican_war_1846",
+      "type": "illustration_event",
+      "subject": "usa_mexican_war_1846",
+      "name": "Mexican-American War operations map",
+      "description": "Map of the principal operations during the Mexican-American War, 1846–1847",
+      "path": "content/illustrations/events/usa_mexican_war_1846.webp",
+      "thumbnail_path": "content/illustrations/events/usa_mexican_war_1846_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1846,
+        "to": 1847
+      },
+      "quality": "supported",
+      "date": "20061006005240 }}",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Mexican war map summary 1846 1847.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Mexican%20war%20map%20summary%201846%201847.jpg",
+        "statement": "{{PD-USGov}}",
+        "title": "Map of the principal operations during the Mexican-American War, 1846–1847",
+        "original_source": null,
+        "source_pixels": [
+          1311,
+          1015
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Mexican%20war%20map%20summary%201846%201847.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-USGov}}"
+      },
+      "author": "U.S. Military Academy history atlas (creator not identified in Commons record)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page identifies source as the U.S. Military Academy history atlas and marks the work PD-USGov / Public Domain Mark. This is a map, intentionally tied only to this war event; verify original source and map content before ingestion."
+      }
+    },
+    {
+      "id": "ill_usa_pearl_harbor_1941",
+      "type": "illustration_event",
+      "subject": "usa_pearl_harbor_1941",
+      "name": "USS Arizona ablaze during Pearl Harbor attack",
+      "description": "Official U.S. Navy photograph of USS Arizona burning during the Japanese attack on Pearl Harbor, 7 December 1941",
+      "path": "content/illustrations/events/usa_pearl_harbor_1941.webp",
+      "thumbnail_path": "content/illustrations/events/usa_pearl_harbor_1941_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1941,
+        "to": 1941
+      },
+      "quality": "supported",
+      "date": "1941-12-07",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Pearl Harbor Attack, 7 December 1941 - 80-G-32920.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Pearl%20Harbor%20Attack%2C%207%20December%201941%20-%2080-G-32920.jpg",
+        "statement": "{{PD-USGov-Military-Navy}}",
+        "title": "Official U.S. Navy photograph of USS Arizona burning during the Japanese attack on Pearl Harbor, 7 December 1941",
+        "original_source": "http://www.history.navy.mil/our-collections/photography/us-navy-ships/battleships/arizona-bb-39/80-G-32920.html",
+        "source_pixels": [
+          5713,
+          4569
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Pearl%20Harbor%20Attack%2C%207%20December%201941%20-%2080-G-32920.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-USGov-Military-Navy}}"
+      },
+      "author": "U.S. Navy",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page identifies official U.S. Navy photograph 80-G-32920 and PD-USGov / Public Domain Mark. Original is 11.7 MB; create a controlled derivative during ingestion."
+      }
+    },
+    {
+      "id": "ill_usa_september_11_attacks_2001",
+      "type": "illustration_event",
+      "subject": "usa_september_11_attacks_2001",
+      "name": "Old Glory at Ground Zero",
+      "description": "U.S. Navy photograph of the American flag at the World Trade Center site, New York, 15 September 2001",
+      "path": "content/illustrations/events/usa_september_11_attacks_2001.webp",
+      "thumbnail_path": "content/illustrations/events/usa_september_11_attacks_2001_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 2001,
+        "to": 2001
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "010915-N-3995K-024 Old Glory at ground zero.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:010915-N-3995K-024%20Old%20Glory%20at%20ground%20zero.jpg",
+        "statement": "{{PD-USGov-Military-Navy}}",
+        "title": "U.S. Navy photograph of the American flag at the World Trade Center site, New York, 15 September 2001",
+        "original_source": null,
+        "source_pixels": [
+          3008,
+          1960
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:010915-N-3995K-024%20Old%20Glory%20at%20ground%20zero.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-USGov-Military-Navy}}"
+      },
+      "author": "Preston Keres / U.S. Navy",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Commons file page records the Navy image ID 010915-N-3995K-024 and marks it public domain as a U.S. federal-government work. It depicts the aftermath and memorial response, not the attacks themselves."
+      }
+    },
+    {
+      "id": "ill_vnm_august_revolution_1945",
+      "type": "illustration_event",
+      "subject": "vnm_august_revolution_1945",
+      "name": "Hồ Chí Minh và đội OSS Deer",
+      "description": "Photograph of Ho Chi Minh and Vo Nguyen Giap with the OSS Deer Team in 1945 during the wartime cooperation period.",
+      "path": "content/illustrations/events/vnm_august_revolution_1945.webp",
+      "thumbnail_path": "content/illustrations/events/vnm_august_revolution_1945_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1945,
+        "to": 1945
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Ho Chi Minh (third from left standing) and the OSS in 1945.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Ho%20Chi%20Minh%20%28third%20from%20left%20standing%29%20and%20the%20OSS%20in%201945.jpg",
+        "statement": "{{PD-USGov-Army}}",
+        "title": "Photograph of Ho Chi Minh and Vo Nguyen Giap with the OSS Deer Team in 1945 during the wartime cooperation period.",
+        "original_source": "Stewart, Richard W. (2012), Deepening Involvement 1945-1965, Center of Military History, United States Army",
+        "source_pixels": [
+          1500,
+          946
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Ho%20Chi%20Minh%20%28third%20from%20left%20standing%29%20and%20the%20OSS%20in%201945.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-USGov-Army}}"
+      },
+      "author": "U.S. Army",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "1,500 × 946 landscape image; Commons identifies it as a U.S. Army work created in official duties and public domain in the United States."
+      }
+    },
+    {
+      "id": "ill_vnm_dong_kinh_nghia_thuc_1907",
+      "type": "illustration_event",
+      "subject": "vnm_dong_kinh_nghia_thuc_1907",
+      "name": "Giáo sư Đông Kinh Nghĩa Thục",
+      "description": "Group portrait of teachers of the Tonkin Free School; the rightmost figure is identified as Phan Chau Trinh. Date is listed as possibly 1907.",
+      "path": "content/illustrations/events/vnm_dong_kinh_nghia_thuc_1907.webp",
+      "thumbnail_path": "content/illustrations/events/vnm_dong_kinh_nghia_thuc_1907_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1907,
+        "to": 1908
+      },
+      "quality": "supported",
+      "date": "possibly 1907",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Les professeurs de l'École libre du Tonkin.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Les%20professeurs%20de%20l%27%C3%89cole%20libre%20du%20Tonkin.jpg",
+        "statement": "{{PD-Vietnam}} {{PD-1996|country=vn}}",
+        "title": "Group portrait of teachers of the Tonkin Free School; the rightmost figure is identified as Phan Chau Trinh. Date is listed as possibly 1907.",
+        "original_source": "Một thiếu-sót trong văn-học sử Việt-nam : Đông-Kinh nghĩa-thục",
+        "source_pixels": [
+          936,
+          596
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Les%20professeurs%20de%20l%27%C3%89cole%20libre%20du%20Tonkin.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Vietnam}} {{PD-1996|country=vn}}"
+      },
+      "author": "Unknown",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Subject-specific photograph for the school movement, not a generic map. Source is 936 × 596; lower resolution and date/rights need recheck."
+      }
+    },
+    {
+      "id": "ill_vnm_huong_khe_resistance_1896",
+      "type": "illustration_event",
+      "subject": "vnm_huong_khe_resistance_1896",
+      "name": "Chân dung Phan Đình Phùng",
+      "description": "Portrait of Phan Dinh Phung reproduced from the 1935 book Vua Hàm-Nghi với việc kinh-thành thất-thủ, held by Gallica.",
+      "path": "content/illustrations/events/vnm_huong_khe_resistance_1896.webp",
+      "thumbnail_path": "content/illustrations/events/vnm_huong_khe_resistance_1896_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1885,
+        "to": 1896
+      },
+      "quality": "supported",
+      "date": "1935",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Portrait of Phan Đình Phùng.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Portrait%20of%20Phan%20%C4%90%C3%ACnh%20Ph%C3%B9ng.png",
+        "statement": "{{PD-Vietnam}} {{PD-1996|country=vn}}",
+        "title": "Portrait of Phan Dinh Phung reproduced from the 1935 book Vua Hàm-Nghi với việc kinh-thành thất-thủ, held by Gallica.",
+        "original_source": "Vua Hàm-Nghi với việc kinh-thành thất-thủ<br>",
+        "source_pixels": [
+          750,
+          806
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Portrait%20of%20Phan%20%C4%90%C3%ACnh%20Ph%C3%B9ng.png",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Vietnam}} {{PD-1996|country=vn}}"
+      },
+      "author": "Unknown",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Portrait directly tied to the Huong Khe commander; Commons page states public domain in Vietnam and the United States. Portrait format, use contain."
+      }
+    },
+    {
+      "id": "ill_vnm_minh_mang_centralisation_1836",
+      "type": "illustration_event",
+      "subject": "vnm_minh_mang_centralisation_1836",
+      "name": "Chân dung vua Minh Mạng",
+      "description": "Portrait of Emperor Minh Mang reproduced from John Crawfurd's 1828 account of an embassy to Siam and Cochin-China; Cornell Library source.",
+      "path": "content/illustrations/events/vnm_minh_mang_centralisation_1836.webp",
+      "thumbnail_path": "content/illustrations/events/vnm_minh_mang_centralisation_1836_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1837
+      },
+      "quality": "supported",
+      "date": "1828",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Minh Mang.gif",
+        "page": "https://commons.wikimedia.org/wiki/File:Minh%20Mang.gif",
+        "statement": "{{PD-old}}",
+        "title": "Portrait of Emperor Minh Mang reproduced from John Crawfurd's 1828 account of an embassy to Siam and Cochin-China; Cornell Library source.",
+        "original_source": "Journal of an Embassy to the Courts of Siam and Cochin-China, exhibiting a view of the actual State of these Kingdoms, from Cornell Library.",
+        "source_pixels": [
+          921,
+          1434
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.45
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Minh%20Mang.gif",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old}}"
+      },
+      "author": "Unknown; described as drawn by a Chinese artist",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Contemporary-era portrait, 1828 source; portrait format, use contain. Commons marks public domain/PDM and requests a United States public-domain tag; ingest must re-evaluate this."
+      }
+    },
+    {
+      "id": "ill_vnm_saigon_fall_1859",
+      "type": "illustration_event",
+      "subject": "vnm_saigon_fall_1859",
+      "name": "Quân Pháp chiếm thành Gia Định",
+      "description": "Contemporary 19th-century print depicting the Franco-Spanish capture of the Saigon citadel on 17 February 1859, published in L'Illustration on 23 April 1859.",
+      "path": "content/illustrations/events/vnm_saigon_fall_1859.webp",
+      "thumbnail_path": "content/illustrations/events/vnm_saigon_fall_1859_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1859,
+        "to": 1860
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "French capture of Saigon in 1859.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:French%20capture%20of%20Saigon%20in%201859.jpg",
+        "statement": "{{PD-old}}",
+        "title": "Contemporary 19th-century print depicting the Franco-Spanish capture of the Saigon citadel on 17 February 1859, published in L'Illustration on 23 April 1859.",
+        "original_source": "19th century print. Reproduction in",
+        "source_pixels": [
+          2880,
+          1718
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:French%20capture%20of%20Saigon%20in%201859.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old}}"
+      },
+      "author": "Unknown; contemporary print in L'Illustration",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-28",
+        "note": "Directly depicts the event; 2,880 × 1,718 landscape source. Commons marks public domain and PDM; the ingest gate must verify the US basis."
       }
     },
     {

@@ -32,7 +32,7 @@
     "flag": "petition_armed_forces"
    },
    "title_vi": "Quân đội kiến nghị chính phủ",
-   "title_en": "Quân nhân petition",
+   "title_en": "Armed forces petition",
    "text_vi": "Các sĩ quan cấp cao gửi kiến nghị chính thức: họ muốn một quân đội chuyên nghiệp, được huấn luyện và trả lương đàng hoàng thay cho lối gọi lính cũ. Trong phòng họp, ai cũng hiểu họ sẽ không chấp nhận câu trả lời 'không'.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -133,7 +133,7 @@
     "flag": "petition_armed_forces"
    },
    "title_vi": "Bộ Tổng tham mưu đòi nghĩa vụ quân sự toàn dân",
-   "title_en": "Quân nhân petition",
+   "title_en": "Armed forces petition",
    "text_vi": "Tổng tham mưu trưởng trình bản ghi nhớ: các nước láng giềng đã có hàng triệu quân dự bị, còn ta thì không. Họ đòi luật nghĩa vụ quân sự toàn dân.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -234,7 +234,7 @@
     "flag": "petition_industrialists"
    },
    "title_vi": "Phòng thương mại kêu gọi tự do thương mại",
-   "title_en": "Nhà công nghiệp petition",
+   "title_en": "Industrialists petition",
    "text_vi": "Các chủ xưởng và nhà buôn ký chung một lá thư: hàng rào thuế quan đang bóp nghẹt xuất khẩu. Họ muốn mở cửa thị trường.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -335,7 +335,7 @@
     "flag": "petition_industrialists"
    },
    "title_vi": "Giới chủ đòi nhà nước đứng ngoài thị trường",
-   "title_en": "Nhà công nghiệp petition",
+   "title_en": "Industrialists petition",
    "text_vi": "Hiệp hội các nhà công nghiệp cho rằng quy định của nhà nước làm chậm mọi dự án. Họ đòi chính sách kinh tế tự do.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -436,7 +436,7 @@
     "flag": "petition_trade_unions"
    },
    "title_vi": "Công đoàn đòi xóa bỏ lao động cưỡng bức",
-   "title_en": "Công đoàn petition",
+   "title_en": "Trade unions petition",
    "text_vi": "Những người thợ tập hợp trước trụ sở chính phủ, giương biểu ngữ đòi tự do lao động cho mọi người.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -537,7 +537,7 @@
     "flag": "petition_trade_unions"
    },
    "title_vi": "Công nhân đòi quyền bầu cử",
-   "title_en": "Công đoàn petition",
+   "title_en": "Trade unions petition",
    "text_vi": "Hàng vạn chữ ký được gửi tới nghị viện: người lao động muốn có lá phiếu như những người có tài sản.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -638,7 +638,7 @@
     "flag": "petition_intelligentsia"
    },
    "title_vi": "Giới trí thức đòi tự do báo chí",
-   "title_en": "Trí thức petition",
+   "title_en": "Intelligentsia petition",
    "text_vi": "Các nhà văn, giáo sư và chủ báo cùng ký một bản tuyên ngôn: không thể có tiến bộ khi tư tưởng bị kiểm duyệt.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -739,7 +739,7 @@
     "flag": "petition_intelligentsia"
    },
    "title_vi": "Đề án trường công cho mọi trẻ em",
-   "title_en": "Trí thức petition",
+   "title_en": "Intelligentsia petition",
    "text_vi": "Một nhóm nhà giáo dục trình đề án mở trường công miễn phí ở mọi làng xã.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -840,7 +840,7 @@
     "flag": "petition_clergy"
    },
    "title_vi": "Giáo hội đòi khôi phục vị thế quốc giáo",
-   "title_en": "Giáo sĩ petition",
+   "title_en": "Clergy petition",
    "text_vi": "Các chức sắc tôn giáo kêu gọi chính phủ bảo vệ đức tin của tổ tiên bằng luật pháp.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -941,7 +941,7 @@
     "flag": "petition_clergy"
    },
    "title_vi": "Giáo hội xin quyền mở trường học",
-   "title_en": "Giáo sĩ petition",
+   "title_en": "Clergy petition",
    "text_vi": "Giáo hội đề nghị tự đứng ra dạy chữ và đạo đức cho trẻ em, với sự hỗ trợ của nhà nước.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -1042,7 +1042,7 @@
     "flag": "petition_landowners"
    },
    "title_vi": "Địa chủ đòi đánh thuế lúa mì ngoại",
-   "title_en": "Địa chủ petition",
+   "title_en": "Landowners petition",
    "text_vi": "Lúa mì giá rẻ từ nước ngoài tràn vào. Các đại điền chủ đòi dựng hàng rào thuế quan.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -1143,7 +1143,7 @@
     "flag": "petition_rural_folk"
    },
    "title_vi": "Nông dân đòi ruộng đất và tự do",
-   "title_en": "Nông dân petition",
+   "title_en": "Rural folk petition",
    "text_vi": "Đại diện các làng gửi kiến nghị: họ muốn được tự do rời làng, tự do làm thuê và có ruộng của riêng mình.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [
@@ -1244,7 +1244,7 @@
     "flag": "petition_petty_bourgeoisie"
    },
    "title_vi": "Thị dân đòi quyền bầu cử theo tài sản",
-   "title_en": "Tiểu tư sản petition",
+   "title_en": "Petty bourgeoisie petition",
    "text_vi": "Các chủ tiệm và thợ cả cho rằng người đóng thuế phải có tiếng nói. Họ đòi chế độ bầu cử theo tài sản.",
    "text_en": "An interest group petitions the government for a new law.",
    "options": [

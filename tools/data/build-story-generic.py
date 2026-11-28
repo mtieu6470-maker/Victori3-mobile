@@ -18,6 +18,7 @@ def opt(oid, vi, effects, w=1, en=None, mods=None):
 events, journals = [], []
 
 # ---------------------------------------------------------------- interest-group petitions (V3-style)
+IG_EN = {"armed_forces": "Armed forces", "clergy": "Clergy", "industrialists": "Industrialists", "intelligentsia": "Intelligentsia", "landowners": "Landowners", "petty_bourgeoisie": "Petty bourgeoisie", "rural_folk": "Rural folk", "trade_unions": "Trade unions"}
 PETITIONS = [
   # ig, group, law, title, text, ig label
   ("armed_forces", "army", "professional_army", "Quân đội kiến nghị chính phủ", "Các sĩ quan cấp cao gửi kiến nghị chính thức: họ muốn một quân đội chuyên nghiệp, được huấn luyện và trả lương đàng hoàng thay cho lối gọi lính cũ. Trong phòng họp, ai cũng hiểu họ sẽ không chấp nhận câu trả lời 'không'.", "Quân nhân"),
@@ -41,7 +42,7 @@ for ig, group, law, title, text, igvi in PETITIONS:
       "id": eid, "country": "$any", "mode": "both",
       "trigger": {"conditions": [{"type": "ig_clout_above", "entity": S, "ig": ig, "value": 0.08}, {"type": "law_not", "entity": S, "group": group, "value": law}, {"type": "not_flag", "flag": f"petition_{ig}"}], "mtth_months": 96},
       "chain": {"flag": f"petition_{ig}"},
-      "title_vi": title, "title_en": f"{igvi} petition", "text_vi": text, "text_en": "An interest group petitions the government for a new law.",
+      "title_vi": title, "title_en": f"{IG_EN.get(ig, ig)} petition", "text_vi": text, "text_en": "An interest group petitions the government for a new law.",
       "options": [
         opt("promise", "Chúng ta sẽ xem xét.", [{"type": "start_journal", "entity": S, "id": jid}, mod(f"{eid}_hope", f"{igvi} chờ đợi", 12, {f"ig_{ig}": 2})], 3, "We will see what we can do."),
         opt("refuse", "Chính phủ không nhận lệnh từ ai.", [mod(f"{eid}_snub", f"{igvi} bị gạt bỏ", 36, {f"ig_{ig}": -3, "legitimacy": -2}, decaying=True)], 1, "The government takes orders from no one."),
